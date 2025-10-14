@@ -1,0 +1,10 @@
+name = "pw"
+name_pretty = "Power"
+icon = "Power"
+global_search = true
+
+[[entries]]
+text = "Shutdown"
+keywords = ["color", "picker", "hypr"]
+actions = { "cp_use" = "wl-copy $(hyprpicker)" }
+icon = "system-shutdown"

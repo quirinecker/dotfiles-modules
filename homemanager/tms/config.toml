@@ -1,0 +1,13 @@
+clone_repo_switch = "Always"
+
+[[search_dirs]]
+path = "/home/quirinecker/projects"
+depth = 10
+
+[[search_dirs]]
+path = "/home/quirinecker/.config"
+depth = 10
+
+[[search_dirs]]
+path = "/home/quirinecker/tmp/projects/"
+depth = 10

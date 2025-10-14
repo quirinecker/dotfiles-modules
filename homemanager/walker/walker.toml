@@ -1,0 +1,116 @@
+monitor = ""
+as_window = false
+timeout = 0
+disable_click_to_close = false
+force_keyboard_focus = false
+
+[list]
+keyboard_scroll_style = "vim"
+max_entries = 50
+show_initial_entries = true
+single_click = true
+visibility_threshold = 20
+placeholder = "No Results"
+
+[keybinds]
+next = ["ctrl n", "Down"]
+previous = ["ctrl p", "Up"]
+quick_activate = []
+
+[providers]
+default = [
+	"desktopapplications",
+	"calc",
+	"runner",
+	"websearch",
+	"menus",
+	"pw"
+]
+
+[[providers.prefixes]]
+prefix = ";"
+provider = "providerlist"
+
+[[providers.prefixes]]
+prefix = "/"
+provider = "files"
+
+[[providers.prefixes]]
+prefix = "."
+provider = "symbols"
+
+[[providers.prefixes]]
+prefix = "!"
+provider = "todo"
+
+[[providers.prefixes]]
+prefix = "="
+provider = "calc"
+
+[[providers.prefixes]]
+prefix = "@"
+provider = "websearch"
+
+[[providers.prefixes]]
+prefix = ":"
+provider = "clipboard"
+
+[[providers.prefixes]]
+prefix = "pw "
+provider = "pw"
+
+[providers.actions]
+desktopapplications = [
+	{ action = "start", default = true, bind = "Return" },
+	{ action = "start:keep", label = "open+next", bind = "shift Return", after = "KeepOpen" },
+	{ action = "erase_history", label = "clear hist", bind = "ctrl h", after = "AsyncReload" },
+	{ action = "pin", bind = "ctrl alt p", after = "AsyncReload" },
+	{ action = "unpin", bind = "ctrl alt p", after = "AsyncReload" },
+	{ action = "pinup", bind = "ctrl n", after = "AsyncReload" },
+	{ action = "pindown", bind = "ctrl m", after = "AsyncReload" },
+]
+
+[[plugins]]
+name = "wifi"
+prefix = "wifi "
+src_once = "node ~/.config/walker/plugins/wifi.cjs"
+parser = "kv"
+
+[[plugins]]
+name = "power"
+prefix = "pw "
+keep_sort = false
+placeholder = "Power"
+recalculate_score = true
+show_icon_when_single = true
+switcher_only = true
+
+[[plugins.entries]]
+label = "Shutdown"
+icon = "system-shutdown-symbolic"
+exec = "shutdown now"
+weight = 1
+
+[[plugins.entries]]
+label = "Reboot"
+icon = "system-reboot-symbolic"
+exec = "reboot"
+weight = 2
+
+[[plugins.entries]]
+label = "Sleep"
+icon = "weather-clear-night-symbolic"
+exec = "systemctl suspend"
+weight = 3
+
+[[plugins.entries]]
+label = "Lock"
+icon = "system-lock-screen-symbolic"
+exec = "hyprlock"
+weight = 4
+
+[[plugins.entries]]
+label = "Logout"
+icon = "system-log-out-symbolic"
+exec = "hyprctl dispatch exit"
+weight = 5
