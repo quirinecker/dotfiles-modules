@@ -20,8 +20,7 @@ in
       pkgs.meslo-lgs-nf
     ];
     xdg.configFile = {
-      "ghostty/config".source =
-        config.lib.file.mkOutOfStoreSymlink ./ghostty/ghostty;
+      "ghostty/config".source = config.lib.file.mkOutOfStoreSymlink ./ghostty/config;
     };
   };
 }
