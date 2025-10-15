@@ -25,7 +25,7 @@ imports = [
 
 ## Modules
 
-There will be a link to the documentation for each module. This repository is still work in progress
+The docs for the individual mdoules can be found [here](./docs/options.md).
 
 ## Development
 
