@@ -2,14 +2,9 @@
   lib,
   config,
   pkgs,
-  inputs,
   ...
 }:
 {
-  imports = [
-    inputs.zen-browser.homeModules.beta
-  ];
-
   options = {
     modules.utilities.enable = lib.mkEnableOption "utilities";
   };

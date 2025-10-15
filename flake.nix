@@ -49,23 +49,22 @@
         ./homemanager/terminal_emulators/wezterm.nix
       ];
 
-      options = pkgs.lib.evalModules {
-        specialArgs = {
-          inherit inputs pkgs;
-        };
-        modules = modules;
+      externalModules = [
+        inputs.walker.homeModules.default
+        inputs.zen-browser.homeModules.beta
+      ];
+
+      docsUtil = import ./docs.nix;
+
+      docs = docsUtil.buildDocs {
+        inherit pkgs inputs modules;
       };
     in
     {
       homeManager = {
-        imports = modules;
+        imports = modules ++ externalModules;
       };
 
-      packages.${system}.docs =
-        (pkgs.nixosOptionsDoc {
-          options = options;
-          documentType = "markdown";
-        }).optionsCommonMark;
-
+      docs = docs.optionsCommonMark;
     };
 }
