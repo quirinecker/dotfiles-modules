@@ -20,11 +20,6 @@
       flake = "${config.home.homeDirectory}/.config/dotfiles";
     };
 
-    services.nextcloud-client = {
-      enable = true;
-      startInBackground = true;
-      package = pkgs.nextcloud-client;
-    };
     home.packages = [
 
       # note taking
@@ -49,6 +44,7 @@
       # others
       pkgs.libreoffice-qt
       pkgs.gimp
+      pkgs.nextcloud-client
 
       # language interpreters / compilers
       pkgs.bun
