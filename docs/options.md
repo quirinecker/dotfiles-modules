@@ -1,7 +1,7 @@
 # NixOS Module Options
 
 
-## [`options.modules.walker.enable`](walker.nix#L9)
+## [`options.modules.walker.enable`](homemanager/walker.nix#L9)
 
 walker
 
@@ -11,7 +11,7 @@ walker
 
 **Example:** `true`
 
-## [`options.modules.fish.enable`](fish.nix#L12)
+## [`options.modules.fish.enable`](homemanager/fish.nix#L12)
 
 fish
 
@@ -21,7 +21,7 @@ fish
 
 **Example:** `true`
 
-## [`options.modules.hyprpanel.enable`](hyprpanel.nix#L8)
+## [`options.modules.hyprpanel.enable`](homemanager/hyprpanel.nix#L8)
 
 hyprpanel
 
@@ -31,7 +31,7 @@ hyprpanel
 
 **Example:** `true`
 
-## [`options.modules.hyprpanel.avatar.image`](hyprpanel.nix#L9)
+## [`options.modules.hyprpanel.avatar.image`](homemanager/hyprpanel.nix#L9)
 
 avatar image
 
@@ -39,7 +39,7 @@ avatar image
 
 **Default:** `""`
 
-## [`options.modules.hyprpanel.avatar.name`](hyprpanel.nix#L15)
+## [`options.modules.hyprpanel.avatar.name`](homemanager/hyprpanel.nix#L15)
 
 Username to be displayed
 
@@ -47,7 +47,7 @@ Username to be displayed
 
 **Default:** `"John Doe"`
 
-## [`options.modules.theme.enable`](theme.nix#L9)
+## [`options.modules.theme.enable`](homemanager/theme.nix#L9)
 
 theme
 
@@ -57,7 +57,7 @@ theme
 
 **Example:** `true`
 
-## [`options.modules.default_apps.enable`](default_apps.nix#L11)
+## [`options.modules.default_apps.enable`](homemanager/default_apps.nix#L11)
 
 default_apps
 
@@ -67,7 +67,7 @@ default_apps
 
 **Example:** `true`
 
-## [`options.modules.editorconfig.enable`](editorconfig.nix#L4)
+## [`options.modules.editorconfig.enable`](homemanager/editorconfig.nix#L4)
 
 enables editorconfig
 
@@ -77,7 +77,7 @@ enables editorconfig
 
 **Example:** `true`
 
-## [`options.modules.utilities.enable`](utilities.nix#L9)
+## [`options.modules.utilities.enable`](homemanager/utilities.nix#L9)
 
 utilities
 
@@ -87,7 +87,7 @@ utilities
 
 **Example:** `true`
 
-## [`options.modules.terminalEmulators.kitty.enable`](terminal_emulators/kitty.nix#L4)
+## [`options.modules.terminalEmulators.kitty.enable`](homemanager/terminal_emulators/kitty.nix#L4)
 
 kitty
 
@@ -97,7 +97,7 @@ kitty
 
 **Example:** `true`
 
-## [`options.modules.terminalEmulators.ghostty.enable`](terminal_emulators/ghostty.nix#L12)
+## [`options.modules.terminalEmulators.ghostty.enable`](homemanager/terminal_emulators/ghostty.nix#L12)
 
 ghostty
 
@@ -107,7 +107,7 @@ ghostty
 
 **Example:** `true`
 
-## [`options.modules.terminalEmulators.wezterm.enable`](terminal_emulators/wezterm.nix#L7)
+## [`options.modules.terminalEmulators.wezterm.enable`](homemanager/terminal_emulators/wezterm.nix#L7)
 
 kitty
 
@@ -117,7 +117,7 @@ kitty
 
 **Example:** `true`
 
-## [`options.modules.nushell.enable`](nushell.nix#L8)
+## [`options.modules.nushell.enable`](homemanager/nushell.nix#L8)
 
 nushell
 
@@ -127,7 +127,7 @@ nushell
 
 **Example:** `true`
 
-## [`options.modules.neovim.enable`](neovim.nix#L22)
+## [`options.modules.neovim.enable`](homemanager/neovim.nix#L22)
 
 neovim
 
@@ -137,7 +137,7 @@ neovim
 
 **Example:** `true`
 
-## [`options.modules.hyprland.enable`](hyprland.nix#L12)
+## [`options.modules.hyprland.enable`](homemanager/hyprland.nix#L12)
 
 hyprland
 
@@ -147,7 +147,7 @@ hyprland
 
 **Example:** `true`
 
-## [`options.modules.tmux.enable`](tmux.nix#L12)
+## [`options.modules.tmux.enable`](homemanager/tmux.nix#L12)
 
 tmux
 
@@ -157,7 +157,7 @@ tmux
 
 **Example:** `true`
 
-## [`options.modules.starship.enable`](starship.nix#L16)
+## [`options.modules.starship.enable`](homemanager/starship.nix#L16)
 
 enables starship
 

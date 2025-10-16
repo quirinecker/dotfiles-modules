@@ -61,7 +61,7 @@
       docs = pkgs.runCommand "docs" { } ''
         ${
           inputs.nix-options-doc.outputs.packages."${system}".default
-        }/bin/nix-options-doc --path ${./homemanager} --out $out
+        }/bin/nix-options-doc --path ${./.} --out $out --follow-symlinks
       '';
     };
 }
