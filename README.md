@@ -13,12 +13,47 @@ dotfiles-modules = {
 };
 ```
 
-Then import the modules in your home-manager configuration:
+In case you want to update the input flakes this flake imports yourself (recommended), then you would need to declare the inputs yourself
+and make this flake follow those inputs:
+
+```nix
+dotfiles-modules = {
+  url = "gitlab:quirinecker/dotfiles-modules";
+  inputs.nixpkgs.follows = "nixpkgs";
+  inputs.zen-browser.follows = "zen-browser";
+  inputs.walker.follows = "walker";
+};
+
+zen-browser = {
+  url = "github:0xc000022070/zen-browser-flake";
+  inputs.nixpkgs.follows = "nixpkgs";
+};
+
+walker = {
+  url = "github:abenz1267/walker";
+  inputs.nixpkgs.follows = "nixpkgs";
+};
+```
+
+Then import the modules in your home-manager configuration or add it to the modules of the home configuration:
 
 ```nix
 imports = [
-	inputs.dotfiles-modules.homemanager.default_apps
+    inputs.dotfiles-modules.homeManager
 ]
+```
+
+or
+
+```nix
+
+homeConfigurations.<username> = home-manager.lib.homeManagerConfiguration {
+	...
+	modules = [
+		inputs.dotfiles-modules.homeManager
+	];
+};
+
 ```
 
 **Note:** If you are new to NixOS, i might add a template repository for the modules which should be simmilar to my own homemanager config.
