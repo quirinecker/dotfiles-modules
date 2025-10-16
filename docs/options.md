@@ -1,494 +1,171 @@
-## _module\.args
+# NixOS Module Options
 
-Additional arguments passed to each module in addition to ones
-like ` lib `, ` config `,
-and ` pkgs `, ` modulesPath `\.
 
-This option is also available to all submodules\. Submodules do not
-inherit args from their parent module, nor do they provide args to
-their parent module or sibling submodules\. The sole exception to
-this is the argument ` name ` which is provided by
-parent modules to a submodule and contains the attribute name
-the submodule is bound to, or a unique generated name if it is
-not bound to an attribute\.
+## [`options.modules.walker.enable`](walker.nix#L9)
 
-Some arguments are already passed by default, of which the
-following *cannot* be changed with this option:
+walker
 
- - ` lib `: The nixpkgs library\.
+**Type:** `boolean`
 
- - ` config `: The results of all options after merging the values from all modules together\.
+**Default:** `false`
 
- - ` options `: The options declared in all modules\.
+**Example:** `true`
 
- - ` specialArgs `: The ` specialArgs ` argument passed to ` evalModules `\.
+## [`options.modules.fish.enable`](fish.nix#L12)
 
- - All attributes of ` specialArgs `
-   
-   Whereas option values can generally depend on other option values
-   thanks to laziness, this does not apply to ` imports `, which
-   must be computed statically before anything else\.
-   
-   For this reason, callers of the module system can provide ` specialArgs `
-   which are available during import resolution\.
-   
-   For NixOS, ` specialArgs ` includes
-   ` modulesPath `, which allows you to import
-   extra modules from the nixpkgs package tree without having to
-   somehow make the module aware of the location of the
-   ` nixpkgs ` or NixOS directories\.
-   
-   ```
-   { modulesPath, ... }: {
-     imports = [
-       (modulesPath + "/profiles/minimal.nix")
-     ];
-   }
-   ```
+fish
 
-For NixOS, the default value for this option includes at least this argument:
+**Type:** `boolean`
 
- - ` pkgs `: The nixpkgs package set according to
-   the ` nixpkgs.pkgs ` option\.
+**Default:** `false`
 
+**Example:** `true`
 
+## [`options.modules.hyprpanel.enable`](hyprpanel.nix#L8)
 
-*Type:*
-lazy attribute set of raw value
+hyprpanel
 
-*Declared by:*
- - [\<nixpkgs/lib/modules\.nix>](https://github.com/NixOS/nixpkgs/blob//lib/modules.nix)
+**Type:** `boolean`
 
+**Default:** `false`
 
+**Example:** `true`
 
-## modules\.default_apps\.enable
-
-
-
-Whether to enable default_apps\.
-
-
-
-*Type:*
-boolean
-
-
-
-*Default:*
-` false `
-
-
-
-*Example:*
-` true `
-
-*Declared by:*
- - [/nix/store/a661xl77ba24lv1j80jyijjvk1h6h1vz-source/homemanager/default_apps\.nix](file:///nix/store/a661xl77ba24lv1j80jyijjvk1h6h1vz-source/homemanager/default_apps.nix)
-
-
-
-## modules\.editorconfig\.enable
-
-
-
-Whether to enable enables editorconfig\.
-
-
-
-*Type:*
-boolean
-
-
-
-*Default:*
-` false `
-
-
-
-*Example:*
-` true `
-
-*Declared by:*
- - [/nix/store/a661xl77ba24lv1j80jyijjvk1h6h1vz-source/homemanager/editorconfig\.nix](file:///nix/store/a661xl77ba24lv1j80jyijjvk1h6h1vz-source/homemanager/editorconfig.nix)
-
-
-
-## modules\.fish\.enable
-
-
-
-Whether to enable fish\.
-
-
-
-*Type:*
-boolean
-
-
-
-*Default:*
-` false `
-
-
-
-*Example:*
-` true `
-
-*Declared by:*
- - [/nix/store/a661xl77ba24lv1j80jyijjvk1h6h1vz-source/homemanager/fish\.nix](file:///nix/store/a661xl77ba24lv1j80jyijjvk1h6h1vz-source/homemanager/fish.nix)
-
-
-
-## modules\.hyprland\.enable
-
-
-
-Whether to enable hyprland\.
-
-
-
-*Type:*
-boolean
-
-
-
-*Default:*
-` false `
-
-
-
-*Example:*
-` true `
-
-*Declared by:*
- - [/nix/store/a661xl77ba24lv1j80jyijjvk1h6h1vz-source/homemanager/hyprland\.nix](file:///nix/store/a661xl77ba24lv1j80jyijjvk1h6h1vz-source/homemanager/hyprland.nix)
-
-
-
-## modules\.hyprpanel\.enable
-
-
-
-Whether to enable hyprpanel\.
-
-
-
-*Type:*
-boolean
-
-
-
-*Default:*
-` false `
-
-
-
-*Example:*
-` true `
-
-*Declared by:*
- - [/nix/store/a661xl77ba24lv1j80jyijjvk1h6h1vz-source/homemanager/hyprpanel\.nix](file:///nix/store/a661xl77ba24lv1j80jyijjvk1h6h1vz-source/homemanager/hyprpanel.nix)
-
-
-
-## modules\.hyprpanel\.avatar\.image
-
-
+## [`options.modules.hyprpanel.avatar.image`](hyprpanel.nix#L9)
 
 avatar image
 
+**Type:** `lib.types.path`
 
+**Default:** `""`
 
-*Type:*
-absolute path
-
-
-
-*Default:*
-` "" `
-
-*Declared by:*
- - [/nix/store/a661xl77ba24lv1j80jyijjvk1h6h1vz-source/homemanager/hyprpanel\.nix](file:///nix/store/a661xl77ba24lv1j80jyijjvk1h6h1vz-source/homemanager/hyprpanel.nix)
-
-
-
-## modules\.hyprpanel\.avatar\.name
-
-
+## [`options.modules.hyprpanel.avatar.name`](hyprpanel.nix#L15)
 
 Username to be displayed
 
+**Type:** `lib.types.str`
 
+**Default:** `"John Doe"`
 
-*Type:*
-string
+## [`options.modules.theme.enable`](theme.nix#L9)
 
+theme
 
+**Type:** `boolean`
 
-*Default:*
-` "John Doe" `
+**Default:** `false`
 
-*Declared by:*
- - [/nix/store/a661xl77ba24lv1j80jyijjvk1h6h1vz-source/homemanager/hyprpanel\.nix](file:///nix/store/a661xl77ba24lv1j80jyijjvk1h6h1vz-source/homemanager/hyprpanel.nix)
+**Example:** `true`
 
+## [`options.modules.default_apps.enable`](default_apps.nix#L11)
 
+default_apps
 
-## modules\.neovim\.enable
+**Type:** `boolean`
 
+**Default:** `false`
 
+**Example:** `true`
 
-Whether to enable neovim\.
+## [`options.modules.editorconfig.enable`](editorconfig.nix#L4)
 
+enables editorconfig
 
+**Type:** `boolean`
 
-*Type:*
-boolean
+**Default:** `false`
 
+**Example:** `true`
 
+## [`options.modules.utilities.enable`](utilities.nix#L9)
 
-*Default:*
-` false `
+utilities
 
+**Type:** `boolean`
 
+**Default:** `false`
 
-*Example:*
-` true `
+**Example:** `true`
 
-*Declared by:*
- - [/nix/store/a661xl77ba24lv1j80jyijjvk1h6h1vz-source/homemanager/neovim\.nix](file:///nix/store/a661xl77ba24lv1j80jyijjvk1h6h1vz-source/homemanager/neovim.nix)
+## [`options.modules.terminalEmulators.kitty.enable`](terminal_emulators/kitty.nix#L4)
 
+kitty
 
+**Type:** `boolean`
 
-## modules\.nushell\.enable
+**Default:** `false`
 
+**Example:** `true`
 
+## [`options.modules.terminalEmulators.ghostty.enable`](terminal_emulators/ghostty.nix#L12)
 
-Whether to enable nushell\.
+ghostty
 
+**Type:** `boolean`
 
+**Default:** `false`
 
-*Type:*
-boolean
+**Example:** `true`
 
+## [`options.modules.terminalEmulators.wezterm.enable`](terminal_emulators/wezterm.nix#L7)
 
+kitty
 
-*Default:*
-` false `
+**Type:** `boolean`
 
+**Default:** `false`
 
+**Example:** `true`
 
-*Example:*
-` true `
+## [`options.modules.nushell.enable`](nushell.nix#L8)
 
-*Declared by:*
- - [/nix/store/a661xl77ba24lv1j80jyijjvk1h6h1vz-source/homemanager/nushell\.nix](file:///nix/store/a661xl77ba24lv1j80jyijjvk1h6h1vz-source/homemanager/nushell.nix)
+nushell
 
+**Type:** `boolean`
 
+**Default:** `false`
 
-## modules\.starship\.enable
+**Example:** `true`
 
+## [`options.modules.neovim.enable`](neovim.nix#L22)
 
+neovim
 
-Whether to enable enables starship\.
+**Type:** `boolean`
 
+**Default:** `false`
 
+**Example:** `true`
 
-*Type:*
-boolean
+## [`options.modules.hyprland.enable`](hyprland.nix#L12)
 
+hyprland
 
+**Type:** `boolean`
 
-*Default:*
-` false `
+**Default:** `false`
 
+**Example:** `true`
 
+## [`options.modules.tmux.enable`](tmux.nix#L12)
 
-*Example:*
-` true `
+tmux
 
-*Declared by:*
- - [/nix/store/a661xl77ba24lv1j80jyijjvk1h6h1vz-source/homemanager/starship\.nix](file:///nix/store/a661xl77ba24lv1j80jyijjvk1h6h1vz-source/homemanager/starship.nix)
+**Type:** `boolean`
 
+**Default:** `false`
 
+**Example:** `true`
 
-## modules\.terminalEmulators\.ghostty\.enable
+## [`options.modules.starship.enable`](starship.nix#L16)
 
+enables starship
 
+**Type:** `boolean`
 
-Whether to enable ghostty\.
+**Default:** `false`
 
+**Example:** `true`
 
-
-*Type:*
-boolean
-
-
-
-*Default:*
-` false `
-
-
-
-*Example:*
-` true `
-
-*Declared by:*
- - [/nix/store/a661xl77ba24lv1j80jyijjvk1h6h1vz-source/homemanager/terminal_emulators/ghostty\.nix](file:///nix/store/a661xl77ba24lv1j80jyijjvk1h6h1vz-source/homemanager/terminal_emulators/ghostty.nix)
-
-
-
-## modules\.terminalEmulators\.kitty\.enable
-
-
-
-Whether to enable kitty\.
-
-
-
-*Type:*
-boolean
-
-
-
-*Default:*
-` false `
-
-
-
-*Example:*
-` true `
-
-*Declared by:*
- - [/nix/store/a661xl77ba24lv1j80jyijjvk1h6h1vz-source/homemanager/terminal_emulators/kitty\.nix](file:///nix/store/a661xl77ba24lv1j80jyijjvk1h6h1vz-source/homemanager/terminal_emulators/kitty.nix)
-
-
-
-## modules\.terminalEmulators\.wezterm\.enable
-
-
-
-Whether to enable kitty\.
-
-
-
-*Type:*
-boolean
-
-
-
-*Default:*
-` false `
-
-
-
-*Example:*
-` true `
-
-*Declared by:*
- - [/nix/store/a661xl77ba24lv1j80jyijjvk1h6h1vz-source/homemanager/terminal_emulators/wezterm\.nix](file:///nix/store/a661xl77ba24lv1j80jyijjvk1h6h1vz-source/homemanager/terminal_emulators/wezterm.nix)
-
-
-
-## modules\.theme\.enable
-
-
-
-Whether to enable theme\.
-
-
-
-*Type:*
-boolean
-
-
-
-*Default:*
-` false `
-
-
-
-*Example:*
-` true `
-
-*Declared by:*
- - [/nix/store/a661xl77ba24lv1j80jyijjvk1h6h1vz-source/homemanager/theme\.nix](file:///nix/store/a661xl77ba24lv1j80jyijjvk1h6h1vz-source/homemanager/theme.nix)
-
-
-
-## modules\.tmux\.enable
-
-
-
-Whether to enable tmux\.
-
-
-
-*Type:*
-boolean
-
-
-
-*Default:*
-` false `
-
-
-
-*Example:*
-` true `
-
-*Declared by:*
- - [/nix/store/a661xl77ba24lv1j80jyijjvk1h6h1vz-source/homemanager/tmux\.nix](file:///nix/store/a661xl77ba24lv1j80jyijjvk1h6h1vz-source/homemanager/tmux.nix)
-
-
-
-## modules\.utilities\.enable
-
-
-
-Whether to enable utilities\.
-
-
-
-*Type:*
-boolean
-
-
-
-*Default:*
-` false `
-
-
-
-*Example:*
-` true `
-
-*Declared by:*
- - [/nix/store/a661xl77ba24lv1j80jyijjvk1h6h1vz-source/homemanager/utilities\.nix](file:///nix/store/a661xl77ba24lv1j80jyijjvk1h6h1vz-source/homemanager/utilities.nix)
-
-
-
-## modules\.walker\.enable
-
-
-
-Whether to enable walker\.
-
-
-
-*Type:*
-boolean
-
-
-
-*Default:*
-` false `
-
-
-
-*Example:*
-` true `
-
-*Declared by:*
- - [/nix/store/a661xl77ba24lv1j80jyijjvk1h6h1vz-source/homemanager/walker\.nix](file:///nix/store/a661xl77ba24lv1j80jyijjvk1h6h1vz-source/homemanager/walker.nix)
-
-
+---
+*Generated with [nix-options-doc](https://github.com/Thunderbottom/nix-options-doc)*

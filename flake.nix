@@ -16,11 +16,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    home-manager = {
-      url = "github:nix-community/home-manager";
+    nix-options-doc = {
+      url = "github:Thunderbottom/nix-options-doc";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
   };
 
   outputs =
@@ -53,18 +52,16 @@
         inputs.walker.homeManagerModules.default
         inputs.zen-browser.homeModules.beta
       ];
-
-      docsUtil = import ./docs.nix;
-
-      docs = docsUtil.buildDocs {
-        inherit pkgs inputs modules;
-      };
     in
     {
       homeManager = {
         imports = modules ++ externalModules;
       };
 
-      docs = docs.optionsCommonMark;
+      docs = pkgs.runCommand "docs" { } ''
+        ${
+          inputs.nix-options-doc.outputs.packages."${system}".default
+        }/bin/nix-options-doc --path ${./homemanager} --out $out
+      '';
     };
 }
