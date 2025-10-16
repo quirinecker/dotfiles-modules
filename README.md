@@ -25,7 +25,7 @@ imports = [
 
 ## Modules
 
-The docs for the individual mdoules can be found [here](./docs/options.md).
+The docs for the individual mdoules can be found [here](options.md).
 
 ## Development
 
