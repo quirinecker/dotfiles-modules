@@ -8,7 +8,7 @@ To use the modules, add the following flake input to your flake:
 
 ```nix
 dotfiles-modules = {
-	url = "gitlab:quirinecker/dotfiles-modules";
+	url = "github:quirinecker/dotfiles-modules";
 	inputs.nixpkgs.follows = "nixpkgs";
 };
 ```
@@ -18,7 +18,7 @@ and make this flake follow those inputs:
 
 ```nix
 dotfiles-modules = {
-  url = "gitlab:quirinecker/dotfiles-modules";
+  url = "github:quirinecker/dotfiles-modules";
   inputs.nixpkgs.follows = "nixpkgs";
   inputs.zen-browser.follows = "zen-browser";
   inputs.walker.follows = "walker";
