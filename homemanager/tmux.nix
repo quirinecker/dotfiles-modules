@@ -25,6 +25,7 @@ in
       bind C-o display-popup -E "tms"
       set-option -g mode-keys vi
       set -g mouse on
+      set -g status on
     '';
 
     programs.tmux.plugins = [
@@ -47,8 +48,7 @@ in
     ];
 
     xdg.configFile = {
-      "tms/config.toml".source =
-        ./tms/config.toml;
+      "tms/config.toml".source = ./tms/config.toml;
     };
   };
 }

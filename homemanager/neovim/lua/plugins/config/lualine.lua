@@ -1,16 +1,10 @@
+local M = {}
+
 local function CurrentTime()
 	return os.date("%H:%M:%S")
 end
 
-local function Text(text)
-	return function()
-		return text
-	end
-end
-
-
 local theme = require('plugins.config.lualine.nord_theme')
-
 
 local opts = {
 	options = {
@@ -30,10 +24,16 @@ local opts = {
 			end,
 			tabs_color = {
 				inactive = { fg = theme.colors.nord5 },
-				active = { fg = theme.colors.nord8  },
+				active = { fg = theme.colors.nord8 },
 			}
 		}, 'filename', 'branch', 'diff' },
-		lualine_c = {},
+		lualine_c = {
+			{
+				require('tmux-status').tmux_windows,
+				cond = require('tmux-status').show,
+				padding = { left = 3 },
+			},
+		},
 		lualine_x = {},
 		lualine_y = { 'filetype', { 'diagnostics', always_visible = true }, 'progress' },
 		lualine_z = {
@@ -59,4 +59,11 @@ local opts = {
 	extensions = {},
 }
 
-require('lualine').setup(opts)
+
+M.setup = function()
+	require('lualine').setup(opts)
+end
+
+M.setup()
+
+return M
