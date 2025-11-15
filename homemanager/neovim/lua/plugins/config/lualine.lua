@@ -28,11 +28,6 @@ local opts = {
 			}
 		}, 'filename', 'branch', 'diff' },
 		lualine_c = {
-			{
-				require('tmux-status').tmux_windows,
-				cond = require('tmux-status').show,
-				padding = { left = 3 },
-			},
 		},
 		lualine_x = {},
 		lualine_y = { 'filetype', { 'diagnostics', always_visible = true }, 'progress' },

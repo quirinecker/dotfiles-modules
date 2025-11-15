@@ -26,10 +26,17 @@ in
       set-option -g mode-keys vi
       set -g mouse on
       set -g status on
+
+      set -g focus-events on
+      set -g status-style bg=default
+      set -g status-right '#(cat #{socket_path}-\#{session_id}-vimbridge-R)'
+      set -g status-left '#(cat #{socket_path}-\#{session_id}-vimbridge)'
+      set -g status-left-length 99
+      set -g status-right-length 99
+      set -g status-justify absolute-centre
     '';
 
     programs.tmux.plugins = [
-      pkgs.tmuxPlugins.nord
       {
         plugin = pkgs.tmuxPlugins.resurrect;
         extraConfig = "set -g @resurrect-strategy-nvim 'session'";

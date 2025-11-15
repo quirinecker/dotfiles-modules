@@ -13,7 +13,7 @@ M.colors = {
 
 M.spec = {
 	normal = {
-		a = { fg = M.colors.transparent, bg = M.colors.nord8, gui = 'bold' },
+		a = { fg = M.colors.nord5, bg = M.colors.nord8 },
 		b = { fg = M.colors.nord5, bg = M.colors.nord1 },
 		c = { fg = M.colors.transparent, bg = M.colors.transparent },
 	},
