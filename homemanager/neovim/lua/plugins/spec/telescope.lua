@@ -24,10 +24,6 @@ local function find_helptags()
 	require('telescope.builtin').help_tags()
 end
 
-local function find_text()
-	require('telescope.builtin').live_grep()
-end
-
 local function find_directories()
 	require('plugins.spec.telescope-picker.find_directories').find_directories()
 end
@@ -38,6 +34,10 @@ end
 
 local function find_emojis()
 	require('plugins.spec.telescope-picker.find_emojis').find_emojis()
+end
+
+local function find_diagnostics()
+	require('telescope.builtin').diagnostics()
 end
 
 return {
@@ -76,6 +76,7 @@ return {
 		{ '<leader>fb',  find_buffers,     desc = "(f)ind (b)uffers" },
 		{ '<leader>fht', find_helptags,    desc = "(f)ind (b)elp tags" },
 		{ '<leader>fd',  find_directories, desc = "(f)ind (d)irectories" },
+		{ '<leader>dl',  find_diagnostics, desc = "(d)iagnostics (l)ist" },
 	},
 	cmd = { "Telescope", "FindPluginFiles", "FindEmojis" },
 	dependencies = {
