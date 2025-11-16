@@ -9,6 +9,7 @@ local theme = require('plugins.config.lualine.nord_theme')
 local opts = {
 	options = {
 		theme = theme.spec,
+		globalstatus = true,
 		component_separators = '|',
 		section_separators = { left = ' ', right = ' ' },
 	},

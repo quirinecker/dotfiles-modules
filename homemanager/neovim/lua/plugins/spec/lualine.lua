@@ -1,7 +1,7 @@
 return {
 	'nvim-lualine/lualine.nvim',
-	event = "VeryLazy",
 	lazy = false,
+	enabled = false,
 	config = function()
 		local lualineConfig = require('plugins.config.lualine')
 
@@ -9,7 +9,7 @@ return {
 		vim.defer_fn(function()
 			lualineConfig.setup()
 			if os.getenv("TMUX") then
-				vim.o.laststatus = 2
+				vim.o.laststatus = 3
 			end
 		end, 100)
 	end,
