@@ -213,7 +213,7 @@ end
 
 local FileType = {
 	provider = function()
-		return " " .. vim.bo.filetype .. " "
+		return vim.bo.filetype
 	end,
 	hl = { fg = colors.fg, bg = colors.bg },
 }
