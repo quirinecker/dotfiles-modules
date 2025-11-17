@@ -29,8 +29,8 @@ in
 
       set -g focus-events on
       set -g status-style bg=default
-      set -g status-right ""
-      set -g status-left ""
+      set -g status-right '#(cat #{socket_path}-\#{session_id}-vimbridge-R)'
+      set -g status-left '#(cat #{socket_path}-\#{session_id}-vimbridge)'
       set -g status-left-length 99
       set -g status-right-length 99
       set -g status-justify absolute-centre
