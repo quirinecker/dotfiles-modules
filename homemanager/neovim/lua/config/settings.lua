@@ -33,3 +33,6 @@ vim.g.loaded_netrwPlugin = 1
 
 -- Tabline
 vim.opt.showtabline = 1
+
+-- remove indicators above statusline
+vim.opt.showmode = false
