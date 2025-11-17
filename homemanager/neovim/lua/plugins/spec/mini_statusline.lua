@@ -1,7 +1,8 @@
 return {
 	'nvim-mini/mini.statusline',
 	version = '*',
+	enabled = false,
 	config = function()
-		require('mini.statusline').setup()
+		require('plugins.config.mini_statusline')
 	end
 }
