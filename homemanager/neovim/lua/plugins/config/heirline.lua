@@ -5,6 +5,15 @@ local devicons = require("nvim-web-devicons")
 local branch = vim.fn.system("git branch --show-current 2>/dev/null")
 branch = branch:gsub("\n", "")
 
+vim.api.nvim_create_autocmd("BufWritePre", {
+	callback = function()
+		vim.schedule(function()
+			vim.defer_fn(function()
+				vim.cmd("redrawstatus")
+			end, 100)
+		end)
+	end,
+})
 
 local mode_names = {
 	n         = "NORMAL",
@@ -209,6 +218,25 @@ local FileType = {
 	hl = { fg = colors.fg, bg = colors.bg },
 }
 
+local FileFlags = {
+	{
+		condition = function()
+			return vim.bo.modified
+		end,
+		provider = " []",
+		hl = { bg = colors.bg, fg = colors.fg },
+		-- refresh statusline on buffer changes
+		update = { "TextChanged", "TextChangedI", "InsertLeave", "BufEnter", "BufWritePost" },
+		enabled = function() return true end,
+	},
+	{
+		condition = function() return not vim.bo.modifiable or vim.bo.readonly end,
+		provider = " []",
+		hl = { bg = colors.bg, fg = colors.fg },
+		update = { "BufEnter", "BufWritePost" },
+	},
+}
+
 local function FilePercentage(background)
 	return {
 		provider = function()
@@ -228,6 +256,7 @@ local DefaultStatusline = {
 	BorderRight(colors.blue, colors.bg),
 	FileIcon,
 	FileName,
+	FileFlags,
 	SimpleSeperator(colors.fg, colors.bg),
 	GitBranch,
 	BorderRight(colors.bg),
