@@ -40,6 +40,24 @@ local function find_diagnostics()
 	require('telescope.builtin').diagnostics()
 end
 
+local function find_commits()
+	require('telescope.builtin').git_bcommits()
+end
+
+local focus_preview = function(prompt_bufnr)
+			local action_state = require("telescope.actions.state")
+			local picker = action_state.get_current_picker(prompt_bufnr)
+			local prompt_win = picker.prompt_win
+			local previewer = picker.previewer
+			local winid = previewer.state.winid
+			local bufnr = previewer.state.bufnr
+			vim.keymap.set("n", "<Tab>", function()
+				vim.cmd(string.format("noautocmd lua vim.api.nvim_set_current_win(%s)", prompt_win))
+			end, { buffer = bufnr })
+			vim.cmd(string.format("noautocmd lua vim.api.nvim_set_current_win(%s)", winid))
+			-- api.nvim_set_current_win(winid)
+end
+
 return {
 	'nvim-telescope/telescope.nvim',
 	config = function()
@@ -53,6 +71,16 @@ return {
 				find_files = {
 					hidden = true,
 					find_command = { 'rg', '--files', '--hidden', '--glob', '!**/.git/*' },
+				},
+				git_bcommits = {
+					mappings = {
+						i = {
+							["<Tab>"] = focus_preview,
+						},
+						n = {
+							["<Tab>"] = focus_preview,
+						},
+					}
 				}
 			},
 		})
@@ -77,6 +105,7 @@ return {
 		{ '<leader>fht', find_helptags,    desc = "(f)ind (b)elp tags" },
 		{ '<leader>fd',  find_directories, desc = "(f)ind (d)irectories" },
 		{ '<leader>dl',  find_diagnostics, desc = "(d)iagnostics (l)ist" },
+		{ '<leader>fc',  find_commits,     desc = "(f)ind (c)ommits" },
 	},
 	cmd = { "Telescope", "FindPluginFiles", "FindEmojis" },
 	dependencies = {
