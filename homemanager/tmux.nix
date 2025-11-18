@@ -23,6 +23,8 @@ in
       unbind C-j
       bind C-j display-popup -E "tms switch"
       bind C-o display-popup -E "tms"
+      bind r source-file ~/.config/tmux/tmux.conf \; display-message "Config reloaded..."
+
       set-option -g mode-keys vi
       set -g mouse on
       set -g status on
