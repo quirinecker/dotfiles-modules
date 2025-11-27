@@ -33,6 +33,7 @@
       pkgs.entr
       pkgs.wl-clipboard
       pkgs.steam-run
+      pkgs.sops
 
       # editors
       pkgs.zed-editor
