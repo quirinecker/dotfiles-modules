@@ -24,8 +24,9 @@
       enable = true;
       settings = {
         scalingPriority = true;
-        theme = {
+        theme = lib.recursiveUpdate (import ./hyprpanel/nord_split.nix) {
           bar.scaling = 80;
+          bar.background = "#00000000";
           bar.menus.menu.notifications.scaling = 80;
           bar.menus.menu.dashboard.scaling = 80;
           bar.menus.menu.clock.scaling = 80;

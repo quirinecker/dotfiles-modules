@@ -28,6 +28,7 @@ in
       window-decoration = false;
       gtk-tabs-location = "hidden";
       background-opacity = 0.8;
+      # background-opacity = 1;
       window-padding-x = 20;
       window-padding-y = 20;
       cursor-style = "bar";
