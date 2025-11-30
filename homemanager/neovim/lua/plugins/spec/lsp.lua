@@ -97,7 +97,11 @@ local function lsp_setup()
 		return config
 	end
 
-	require('mason').setup({})
+	require('mason').setup({
+		ui = {
+			border = "rounded",
+		}
+	})
 	require('mason-lspconfig').setup { ensure_installed = {} }
 
 	vim.lsp.enable({

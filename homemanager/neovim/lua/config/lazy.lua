@@ -1,6 +1,9 @@
 -- require('lazy').setup("plugins")
 require('lazy').setup({
-    spec = {
-        {import = "plugins.spec"},
-    }
+	ui = {
+		border = "rounded"
+	},
+	spec = {
+		{ import = "plugins.spec" },
+	}
 })
