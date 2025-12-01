@@ -17,14 +17,18 @@ return {
 
 		-- see below for full list of optional dependencies 👇
 	},
-	opts = {
-		workspaces = {
-			{
-				name = "Personal",
-				path = "~/Nextcloud/obsidian/Personal",
-			},
-		}
+	config = function()
+		vim.opt_local.conceallevel = 2
+		require("obsidian").setup({
 
-		-- see below for full list of options 👇
-	},
+			workspaces = {
+				{
+					name = "Personal",
+					path = "~/Nextcloud/obsidian/Personal",
+				},
+			}
+
+			-- see below for full list of options 👇
+		})
+	end,
 }
