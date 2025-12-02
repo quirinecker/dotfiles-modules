@@ -1,4 +1,6 @@
 clone_repo_switch = "Always"
+full_path = true
+display_full_path = true
 
 [[search_dirs]]
 path = "/home/quirinecker/projects"
@@ -11,3 +13,7 @@ depth = 10
 [[search_dirs]]
 path = "/home/quirinecker/tmp/projects/"
 depth = 10
+
+[[search_dirs]]
+path = "/home/quirinecker/Nextcloud/obsidian"
+depth = 1
