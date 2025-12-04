@@ -18,7 +18,7 @@ return {
 		-- see below for full list of optional dependencies 👇
 	},
 	config = function()
-		vim.opt_local.conceallevel = 2
+		vim.opt_global.conceallevel = 2
 		require("obsidian").setup({
 
 			workspaces = {
