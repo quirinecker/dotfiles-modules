@@ -20,8 +20,11 @@ return {
 				enabled = true,
 			},
 			signature = {
-				enabled = true
-			}
+				enabled = true,
+				auto_open = {
+					trigger = false,
+				}
+			},
 		},
 		-- you can enable a preset for easier configuration
 		presets = {
