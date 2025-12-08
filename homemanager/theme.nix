@@ -4,6 +4,11 @@
   pkgs,
   ...
 }:
+let
+  gtkOptions = {
+          gtk-enable-primary-paste=false;
+  };
+in
 {
   options = {
     modules.theme.enable = lib.mkEnableOption "theme";
@@ -25,6 +30,8 @@
         name = "Adwaita-dark";
         package = pkgs.gnome-themes-extra;
       };
+      gtk4.extraConfig = gtkOptions;
+      gtk3.extraConfig = gtkOptions;
     };
 
     qt = {
