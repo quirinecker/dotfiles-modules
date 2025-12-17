@@ -46,6 +46,7 @@
       pkgs.libreoffice-qt
       pkgs.gimp
       pkgs.nextcloud-client
+      pkgs.vlc
 
       # language interpreters / compilers
       pkgs.bun
