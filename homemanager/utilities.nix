@@ -20,6 +20,15 @@
       flake = "${config.home.homeDirectory}/.config/dotfiles";
     };
 
+    programs.obsidian.enable = true;
+    programs.obsidian = {
+      vaults."Personal" = {
+        enable = true;
+        target = "Nextcloud/obsidian/Personal";
+        settings = { };
+      };
+    };
+
     home.packages = [
 
       # note taking
@@ -47,6 +56,7 @@
       pkgs.gimp
       pkgs.nextcloud-client
       pkgs.vlc
+      pkgs.obsidian
 
       # language interpreters / compilers
       pkgs.bun
