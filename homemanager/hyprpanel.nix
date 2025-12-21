@@ -46,15 +46,25 @@
           shortcuts.enabled = false;
         };
         bar.launcher.icon = "";
-        bar.layouts."0".right = [
-          "volume"
-          "network"
-          "bluetooth"
-          (lib.mkIf config.modules.hyprpanel.battery.enable "battery")
-          "systray"
-          "clock"
-          "notifications"
-        ];
+        bar.layouts."0" = {
+          left = [
+            "dashboard"
+            "workspaces"
+            "windowtitle"
+          ];
+          center = [
+            "media"
+          ];
+          right = [
+            "volume"
+            "network"
+            "bluetooth"
+            (lib.mkIf config.modules.hyprpanel.battery.enable "battery")
+            "systray"
+            "clock"
+            "notifications"
+          ];
+        };
         terminal = "ghostty";
       };
     };
