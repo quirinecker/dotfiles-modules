@@ -17,6 +17,12 @@
       default = "John Doe";
       description = "Username to be displayed";
     };
+
+    modules.hyprpanel.battery.enable = lib.mkOption {
+      type = lib.types.bool;
+      default = true;
+      description = "Enable battery widget";
+    };
   };
 
   config = lib.mkIf config.modules.hyprpanel.enable {
@@ -40,6 +46,15 @@
           shortcuts.enabled = false;
         };
         bar.launcher.icon = "";
+        bar.layouts."0".right = [
+          "volume"
+          "network"
+          "bluetooth"
+          (lib.mkIf config.modules.hyprpanel.battery.enable "battery")
+          "systray"
+          "clock"
+          "notifications"
+        ];
         terminal = "ghostty";
       };
     };
