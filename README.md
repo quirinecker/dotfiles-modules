@@ -71,7 +71,7 @@ To do this you can usually just add the following option at the end.
 <command to switch configuration> --override-input dotfiles-modules path:$(pwd)
 ```
 
-This will override the dotfiles-modules input witht the flake that is located in the current directory.
+This will override the dotfiles-modules input with the flake that is located in the current directory.
 You can see below some example usages of this option with different commands.
 
 ```bash
