@@ -1,6 +1,6 @@
 # Dotfiles Modules
 
-This repository provides a collection of custom NixOS modules which are in use by me. My actual dotfiles are now private because there is no reason to have private host configurations public. The reusable/public configurations are contained within the modules provided in the repository.
+This repository provides a collection of custom NixOS modules which are in use by me. My actual dotfiles are now private because there is no reason to have private host configurations public. The reusable/public configurations are contained within the modules provided in this repository.
 
 ## Usage
 
@@ -64,17 +64,28 @@ The docs for the individual mdoules can be found [here](options.md).
 
 ## Development
 
-I am using [nh](https://github.com/nix-community/nh) for my nixos configuration and this is alos how I develop/test the modules. Below is the command.
-This works for me, because I have configured nh to know where my primary flake is located.
+This repository does not run on its own, because it is meant to be used as a flake input. When I develop on this repository I usually override the input on my doftiles flake.
+To do this you can usually just add the following option at the end.
+
+```bash
+<command to switch configuration> --override-input dotfiles-modules path:$(pwd)
+```
+
+This will override the dotfiles-modules input witht the flake that is located in the current directory.
+You can see below some example usages of this option with different commands.
 
 ```bash
 nh home switch -- --override-input dotfiles-modules path:$(pwd)
 ```
 
-If you forked this repository and want to make some changes something along the lines of the second command could suit your needs.
-
+```bash
+nh os switch -- --override-input dotfiles-modules path:$(pwd)
 ```
+
+```bash
 home-manager switch --flake <path-to-your-local-flake> --override-input dotfiles-modules path:$(pwd)
 ```
 
-**Note:** In the future I might add nixos modules too, in which case I will update the commands becuase the `home-manager` / `nh` command will only update the home config.
+``` bash
+nixos-rebuild switch --flake <path-to-your-local-flake> --override-input dotfiles-modules path:$(pwd)
+```
