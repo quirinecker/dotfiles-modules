@@ -43,6 +43,7 @@
       pkgs.wl-clipboard
       pkgs.steam-run
       pkgs.sops
+      pkgs.pavucontrol
 
       # editors
       pkgs.zed-editor
