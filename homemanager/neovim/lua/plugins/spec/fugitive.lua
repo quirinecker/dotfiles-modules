@@ -9,5 +9,9 @@ return {
 			vim.cmd("Git commit")
 		end, '(g)it (c)ommit' }
 	},
-	cmd = 'Git'
+	cmd = {
+		'Git',
+		'Gread',
+		'Gbrowse'
+	}
 }
