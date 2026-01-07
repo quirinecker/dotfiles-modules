@@ -44,6 +44,7 @@
       pkgs.steam-run
       pkgs.sops
       pkgs.pavucontrol
+      pkgs.errands
 
       # editors
       pkgs.zed-editor
