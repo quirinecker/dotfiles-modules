@@ -47,7 +47,7 @@
       pkgs.errands
 
       # editors
-      pkgs.zed-editor
+      # pkgs.zed-editor # updating softwar crashed the pc. Not in use right now anyway. disabled for now
       pkgs.vscode
 
       # browsers
