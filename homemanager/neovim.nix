@@ -58,6 +58,7 @@ in
       pkgs.clang-tools
       pkgs.taplo
       pkgs.tinymist
+      pkgs.dart
     ];
     xdg.configFile = {
       "nvim/init.lua".source = config.lib.file.mkOutOfStoreSymlink ./neovim/init.lua;

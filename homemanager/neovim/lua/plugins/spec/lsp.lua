@@ -122,7 +122,8 @@ local function lsp_setup()
 		'clangd',
 		'eslint',
 		'nushell',
-		'tinymist'
+		'tinymist',
+		'dartls'
 		-- 'jdtls'
 	})
 
@@ -159,6 +160,8 @@ local function lsp_setup()
 	vim.lsp.config('tinymist', with_defaults({
 		cmd = { "tinymist" }
 	}))
+
+	vim.lsp.config('dartls', with_defaults(require("plugins.spec.server_configurations.dart")))
 
 	vim.diagnostic.config({
 		virtual_text = {
