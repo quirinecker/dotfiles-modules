@@ -50,7 +50,7 @@ provider = "clipboard"
 
 [[providers.prefixes]]
 prefix = "pw "
-provider = "pw"
+provider = "menus:power"
 
 [providers.actions]
 fallback = [

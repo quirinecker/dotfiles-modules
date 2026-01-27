@@ -1,10 +1,27 @@
-name = "pw"
+name = "power"
 name_pretty = "Power"
-icon = "Power"
-global_search = true
+icon = "applications-other"
 
 [[entries]]
 text = "Shutdown"
-keywords = ["color", "picker", "hypr"]
-actions = { "cp_use" = "wl-copy $(hyprpicker)" }
+keywords = ["turn", "off", "power", "shutdown"]
+actions = { "cp_use" = "shutdown -h now" }
 icon = "system-shutdown"
+
+[[entries]]
+text = "Reboot"
+keywords = ["restart", "reboot"]
+actions = { "cp_use" = "reboot -r now" }
+icon = "system-reboot"
+
+[[entries]]
+text = "Sleep"
+keywords = ["sleep", "hibernate", "suspend"]
+actions = { "cp_use" = "systemctl hibernate" }
+icon = "weather-clear-night"
+
+[[entries]]
+text = "Lock"
+keywords = ["lock"]
+actions = { "cp_use" = "hyprlock" }
+icon = "system-lock-screen"

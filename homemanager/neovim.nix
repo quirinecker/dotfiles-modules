@@ -40,7 +40,7 @@ in
       pkgs.luajitPackages.lua-lsp
       pkgs.lua-language-server
       pkgs.nil
-      pkgs.nixfmt-rfc-style
+      pkgs.nixfmt
       pkgs.nixd
       pkgs.rust-analyzer
       pkgs.rustfmt
