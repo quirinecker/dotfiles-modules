@@ -22,6 +22,7 @@ dotfiles-modules = {
   inputs.nixpkgs.follows = "nixpkgs";
   inputs.zen-browser.follows = "zen-browser";
   inputs.walker.follows = "walker";
+  inputs.elephant.follows = "elephant";
 };
 
 zen-browser = {
@@ -32,6 +33,12 @@ zen-browser = {
 walker = {
   url = "github:abenz1267/walker";
   inputs.nixpkgs.follows = "nixpkgs";
+  inputs.elephant.follows = "elephant";
+};
+
+elephant = {
+	url = "github:abenz1267/elephant";
+	inputs.nixpkgs.follows = "nixpkgs";
 };
 ```
 
