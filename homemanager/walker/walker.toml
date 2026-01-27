@@ -18,14 +18,7 @@ previous = ["ctrl p", "Up"]
 quick_activate = []
 
 [providers]
-default = [
-	"desktopapplications",
-	"calc",
-	"runner",
-	"websearch",
-	"menus",
-	"pw"
-]
+default = ["desktopapplications", "calc", "runner", "websearch", "menus", "pw"]
 
 [[providers.prefixes]]
 prefix = ";"
@@ -60,57 +53,16 @@ prefix = "pw "
 provider = "pw"
 
 [providers.actions]
+fallback = [
+	{ action = "menus:open", label = "open", after = "Nothing" },
+	{ action = "erase_history", label = "clear hist", bind = "ctrl h", after = "AsyncReload" },
+]
 desktopapplications = [
 	{ action = "start", default = true, bind = "Return" },
 	{ action = "start:keep", label = "open+next", bind = "shift Return", after = "KeepOpen" },
 	{ action = "erase_history", label = "clear hist", bind = "ctrl h", after = "AsyncReload" },
-	{ action = "pin", bind = "ctrl alt p", after = "AsyncReload" },
-	{ action = "unpin", bind = "ctrl alt p", after = "AsyncReload" },
-	{ action = "pinup", bind = "ctrl n", after = "AsyncReload" },
-	{ action = "pindown", bind = "ctrl m", after = "AsyncReload" },
+	{ action = "pin", bind = "ctrl alt p", after = "Nothing" },
+	{ action = "unpin", bind = "ctrl alt p", after = "Nothing" },
+	{ action = "pinup", bind = "ctrl alt n", after = "Nothing" },
+	{ action = "pindown", bind = "ctrl alt m", after = "Nothing" },
 ]
-
-[[plugins]]
-name = "wifi"
-prefix = "wifi "
-src_once = "node ~/.config/walker/plugins/wifi.cjs"
-parser = "kv"
-
-[[plugins]]
-name = "power"
-prefix = "pw "
-keep_sort = false
-placeholder = "Power"
-recalculate_score = true
-show_icon_when_single = true
-switcher_only = true
-
-[[plugins.entries]]
-label = "Shutdown"
-icon = "system-shutdown-symbolic"
-exec = "shutdown now"
-weight = 1
-
-[[plugins.entries]]
-label = "Reboot"
-icon = "system-reboot-symbolic"
-exec = "reboot"
-weight = 2
-
-[[plugins.entries]]
-label = "Sleep"
-icon = "weather-clear-night-symbolic"
-exec = "systemctl suspend"
-weight = 3
-
-[[plugins.entries]]
-label = "Lock"
-icon = "system-lock-screen-symbolic"
-exec = "hyprlock"
-weight = 4
-
-[[plugins.entries]]
-label = "Logout"
-icon = "system-log-out-symbolic"
-exec = "hyprctl dispatch exit"
-weight = 5
