@@ -27,6 +27,11 @@ in
       "hypr/nix.conf".text = ''
         $defaultBrowser=${defaultBrowser}
       '';
+
+      "hypr/scripts/gpu-screen-recorder/save-replay.sh".source =
+        config.lib.file.mkOutOfStoreSymlink ./hyprland/scripts/gpu-screen-recorder/save-replay.sh;
+      "hypr/scripts/gpu-screen-recorder/start-replay.sh".source =
+        config.lib.file.mkOutOfStoreSymlink ./hyprland/scripts/gpu-screen-recorder/start-replay.sh;
     };
   };
 }
