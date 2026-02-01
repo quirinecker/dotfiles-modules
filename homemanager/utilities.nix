@@ -44,7 +44,9 @@
       pkgs.steam-run
       pkgs.sops
       pkgs.pavucontrol
-      pkgs.errands
+
+      # https://github.com/quirinecker/dotfiles-modules/issues/13
+      # pkgs.errands
 
       # editors
       # pkgs.zed-editor # updating softwar crashed the pc. Not in use right now anyway. disabled for now
