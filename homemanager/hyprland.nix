@@ -9,7 +9,20 @@ let
 in
 {
   options = {
-    modules.hyprland.enable = lib.mkEnableOption "hyprland";
+    modules.hyprland.enable = lib.mkOption {
+      type = lib.types.bool;
+      default = false;
+      description = ''
+        Whether to enable the hyprland configuration module.
+        Warning: This does not include the installation of hyprland itself.
+        recommended dependencies:
+          hyprpaper
+          hypridle
+          hyprlock
+          hyprshot
+          https://github.com/WhySoBad/hyprland-preview-share-picker/tree/master
+      '';
+    };
   };
 
   config = lib.mkIf config.modules.hyprland.enable {
@@ -22,6 +35,7 @@ in
       "hypr/hyprpaper.conf".source = config.lib.file.mkOutOfStoreSymlink ./hyprland/hyprpaper.conf;
       "hypr/hypridle.conf".source = config.lib.file.mkOutOfStoreSymlink ./hyprland/hypridle.conf;
       "hypr/hyprlock.conf".source = config.lib.file.mkOutOfStoreSymlink ./hyprland/hyprlock.conf;
+      "hypr/xdph.conf".source = config.lib.file.mkOutOfStoreSymlink ./hyprland/xdph.conf;
       "backgrounds".source = config.lib.file.mkOutOfStoreSymlink ./backgrounds;
 
       "hypr/nix.conf".text = ''
