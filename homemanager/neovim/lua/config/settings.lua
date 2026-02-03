@@ -36,3 +36,5 @@ vim.opt.showtabline = 1
 
 -- remove indicators above statusline
 vim.opt.showmode = false
+
+vim.opt.diffopt = "vertical"
