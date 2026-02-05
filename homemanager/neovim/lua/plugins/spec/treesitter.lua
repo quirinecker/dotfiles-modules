@@ -4,7 +4,7 @@ return {
 		build = ':TSUpdate',
 		event = { "BufReadPost", "BufNewFile" },
 		config = function()
-			require("nvim-treesitter.configs").setup {
+			require("nvim-treesitter").setup {
 				ensure_installed = {
 					"lua",
 					"typescript",
@@ -26,35 +26,31 @@ return {
 				},
 				indent = {
 					enable = true
+				},
+				textobjects = {
+					select = {
+						enable = true,
+						lookahead = true, -- Automatically jump forward to textobj, similar to targets.vim
+						keymaps = {
+							-- You can use the capture groups defined in textobjects.scm
+							["afn"] = "@function.outer",
+							["ifn"] = "@function.inner",
+							["acl"] = "@class.outer",
+							["icl"] = "@class.inner",
+							["icm"] = "@comment.inner",
+							["acm"] = "@comment.outer",
+							["ib"] = "@block.inner",
+							["ab"] = "@block.outer",
+							["la"] = "@assignment.lhs",
+							["ra"] = "@assignment.lhs"
+						},
+					}
 				}
 			}
 		end,
 		dependencies = {
 			{
 				"nvim-treesitter/nvim-treesitter-textobjects",
-				config = function()
-					require("nvim-treesitter.configs").setup {
-						textobjects = {
-							select = {
-								enable = true,
-								lookahead = true, -- Automatically jump forward to textobj, similar to targets.vim
-								keymaps = {
-									-- You can use the capture groups defined in textobjects.scm
-									["afn"] = "@function.outer",
-									["ifn"] = "@function.inner",
-									["acl"] = "@class.outer",
-									["icl"] = "@class.inner",
-									["icm"] = "@comment.inner",
-									["acm"] = "@comment.outer",
-									["ib"] = "@block.inner",
-									["ab"] = "@block.outer",
-									["la"] = "@assignment.lhs",
-									["ra"] = "@assignment.lhs"
-								},
-							}
-						}
-					}
-				end
 			},
 		}
 	},
