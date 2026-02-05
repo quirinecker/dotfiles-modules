@@ -75,6 +75,7 @@
       pkgs.gnome-system-monitor
       pkgs.geary
       pkgs.nautilus
+      pkgs.baobab
 
       # social
       pkgs.discord
