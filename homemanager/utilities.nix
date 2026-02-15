@@ -79,6 +79,7 @@
 
       # social
       pkgs.discord
+      pkgs.element-desktop
       pkgs.signal-desktop
       pkgs.spotify
 
