@@ -31,17 +31,9 @@
         };
         "*.yaml" = {
           indent_style = "space";
-          indent_size = 4;
-        };
-        "*.yml" = {
-          indent_style = "space";
-          indent_size = 4;
-        };
-        "compose.yml" = {
-          indent_style = "space";
           indent_size = 2;
         };
-        "compose.yaml" = {
+        "*.yml" = {
           indent_style = "space";
           indent_size = 2;
         };
