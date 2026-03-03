@@ -61,6 +61,7 @@
       pkgs.nextcloud-client
       pkgs.vlc
       pkgs.obsidian
+      pkgs.direnv
 
       # language interpreters / compilers
       pkgs.bun
