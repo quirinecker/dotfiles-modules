@@ -91,6 +91,10 @@
       pkgs.python3
       pkgs.typescript
       pkgs.typst
+
+      # Gaming
+      pkgs.gdlauncher-carbon # Minecraft Launcher for mods and vanilla
+
     ];
   };
 }
