@@ -26,6 +26,10 @@ return {
 					name = "Personal",
 					path = "~/Nextcloud/obsidian/Personal",
 				},
+			},
+
+			daily_notes = {
+				folder = "daily/"
 			}
 
 			-- see below for full list of options 👇
