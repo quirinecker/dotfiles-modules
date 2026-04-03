@@ -26,6 +26,11 @@
       url = "github:Thunderbottom/nix-options-doc";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    noctalia = {
+      url = "github:noctalia-dev/noctalia-shell";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -49,6 +54,7 @@
         ./homemanager/tmux.nix
         ./homemanager/utilities.nix
         ./homemanager/walker.nix
+        ./homemanager/noctalia.nix
         ./homemanager/terminal_emulators/ghostty.nix
         ./homemanager/terminal_emulators/kitty.nix
         ./homemanager/terminal_emulators/wezterm.nix
@@ -57,6 +63,7 @@
       externalModules = [
         inputs.walker.homeManagerModules.default
         inputs.zen-browser.homeModules.beta
+        inputs.noctalia.homeModules.default
       ];
     in
     {
