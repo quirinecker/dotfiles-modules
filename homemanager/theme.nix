@@ -6,7 +6,7 @@
 }:
 let
   gtkOptions = {
-          gtk-enable-primary-paste=false;
+    gtk-enable-primary-paste = false;
   };
 in
 {
@@ -30,6 +30,7 @@ in
         name = "Adwaita-dark";
         package = pkgs.gnome-themes-extra;
       };
+      gtk4.theme = config.gtk.theme;
       gtk4.extraConfig = gtkOptions;
       gtk3.extraConfig = gtkOptions;
     };
