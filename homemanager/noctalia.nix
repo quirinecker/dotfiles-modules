@@ -9,7 +9,7 @@
     modules.noctalia.enable = lib.mkEnableOption "noctalia";
     modules.noctalia.isLaptop = lib.mkOption {
       type = lib.types.bool;
-      default = { };
+      default = false;
     };
   };
 
@@ -17,7 +17,7 @@
     services.kdeconnect.enable = true;
 
     programs.noctalia-shell.enable = true;
-    programs.noctalia-shell.settings = (import ./noctalia/settings.nix) {isLaptop = config.modules.isLaptop;};
+    programs.noctalia-shell.settings = (import ./noctalia/settings.nix) {isLaptop = config.modules.noctalia.isLaptop;};
     programs.noctalia-shell.plugins = {
       sources = [
         {
