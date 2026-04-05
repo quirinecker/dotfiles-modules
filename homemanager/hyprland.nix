@@ -19,9 +19,7 @@ in
 
     xdg.configFile = {
       "hypr/hyprland.conf".source = config.lib.file.mkOutOfStoreSymlink ./hyprland/hyprland.conf;
-      "hypr/hyprpaper.conf".source = config.lib.file.mkOutOfStoreSymlink ./hyprland/hyprpaper.conf;
       "hypr/hypridle.conf".source = config.lib.file.mkOutOfStoreSymlink ./hyprland/hypridle.conf;
-      "hypr/hyprlock.conf".source = config.lib.file.mkOutOfStoreSymlink ./hyprland/hyprlock.conf;
       "backgrounds".source = config.lib.file.mkOutOfStoreSymlink ./backgrounds;
 
       "hypr/nix.conf".text = ''
