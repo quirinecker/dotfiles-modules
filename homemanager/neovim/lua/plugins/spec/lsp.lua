@@ -35,7 +35,7 @@ local function keymap(args)
 
 	-- autoformat
 
-	if client.supports_method('textDocument/formatting') then
+	if client:supports_method('textDocument/formatting') then
 		vim.api.nvim_create_autocmd('BufWritePre', {
 			group = vim.api.nvim_create_augroup('LspFormatting', { clear = true }),
 			buffer = args.buf,
