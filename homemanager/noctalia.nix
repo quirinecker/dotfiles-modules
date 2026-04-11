@@ -17,7 +17,9 @@
     services.kdeconnect.enable = true;
 
     programs.noctalia-shell.enable = true;
-    programs.noctalia-shell.settings = (import ./noctalia/settings.nix) {isLaptop = config.modules.noctalia.isLaptop;};
+    programs.noctalia-shell.settings = (import ./noctalia/settings.nix) {
+      isLaptop = config.modules.noctalia.isLaptop;
+    };
     programs.noctalia-shell.plugins = {
       sources = [
         {
@@ -28,6 +30,10 @@
       ];
       states = {
         kde-connect = {
+          enabled = true;
+          sourceUrl = "https://github.com/noctalia-dev/noctalia-plugins/";
+        };
+        network-manager-vpn = {
           enabled = true;
           sourceUrl = "https://github.com/noctalia-dev/noctalia-plugins/";
         };
