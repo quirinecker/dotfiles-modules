@@ -4,9 +4,6 @@
   pkgs,
   ...
 }:
-let
-  createDummyTmuxSessionScript = ./fish/create_dummy_tmux_session.nu;
-in
 {
   options = {
     modules.fish.enable = lib.mkEnableOption "fish";
@@ -20,9 +17,6 @@ in
     programs.fish = {
       enable = true;
       shellInit = ''
-        # this creates a dummy tmux session if none exists
-        # it is for loading the continuum restore plugin
-        ${lib.getExe pkgs.nushell} ${createDummyTmuxSessionScript}
         fish_vi_key_bindings
         set -g fish_color_command brblue
         set fish_greeting
