@@ -14,8 +14,6 @@
   };
 
   config = lib.mkIf config.modules.noctalia.enable {
-    services.kdeconnect.enable = true;
-
     programs.noctalia-shell.enable = true;
     programs.noctalia-shell.settings = (import ./noctalia/settings.nix) {
       isLaptop = config.modules.noctalia.isLaptop;
