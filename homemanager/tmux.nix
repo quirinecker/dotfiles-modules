@@ -21,8 +21,24 @@ in
       set -g default-terminal "screen-256color"
       unbind C-o
       unbind C-j
-      bind C-j display-popup -E "tms switch"
+      bind C-d display-popup -E "tms switch"
       bind C-o display-popup -E "tms"
+
+      bind-key "C-j" run-shell "sesh connect \"$(
+        sesh list --icons | fzf-tmux -p 80%,70% \
+          --no-sort --ansi --border-label ' sesh ' --prompt '⚡  ' \
+          --header '  ^a all ^t tmux ^g configs ^x zoxide ^d tmux kill ^f find' \
+          --bind 'tab:down,btab:up' \
+          --bind 'ctrl-a:change-prompt(⚡  )+reload(sesh list --icons)' \
+          --bind 'ctrl-t:change-prompt(🪟  )+reload(sesh list -t --icons)' \
+          --bind 'ctrl-g:change-prompt(⚙️  )+reload(sesh list -c --icons)' \
+          --bind 'ctrl-x:change-prompt(📁  )+reload(sesh list -z --icons)' \
+          --bind 'ctrl-f:change-prompt(🔎  )+reload(fd -H -d 2 -t d -E .Trash . ~)' \
+          --bind 'ctrl-d:execute(tmux kill-session -t {2..})+change-prompt(⚡  )+reload(sesh list --icons)' \
+          --preview-window 'right:55%' \
+          --preview 'sesh preview {}'
+      )\""
+
       bind r source-file ~/.config/tmux/tmux.conf \; display-message "Config reloaded..."
 
       set-option -g mode-keys vi
@@ -54,6 +70,11 @@ in
 
     home.packages = [
       pkgs.tmux-sessionizer
+
+      # tmux sessionizer + dependencies
+      pkgs.sesh
+      pkgs.zoxide
+      pkgs.fzf
     ];
 
     xdg.configFile = {

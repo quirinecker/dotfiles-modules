@@ -46,6 +46,7 @@ in
       # font-family-bold-italic = MesloLGS NF Bold Italic;
       font-style = false;
 
+      command = "tmux";
       shell-integration = "fish";
       shell-integration-features = "no-cursor";
 
