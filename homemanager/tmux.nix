@@ -21,9 +21,6 @@ in
       set -g default-terminal "screen-256color"
       unbind C-o
       unbind C-j
-      bind C-d display-popup -E "tms switch"
-      bind C-o display-popup -E "tms"
-
       bind-key "C-j" run-shell "sesh connect \"$(
         sesh list --icons | fzf-tmux -p 80%,70% \
           --no-sort --ansi --border-label ' sesh ' --prompt '⚡  ' \
@@ -69,8 +66,6 @@ in
     ];
 
     home.packages = [
-      pkgs.tmux-sessionizer
-
       # tmux sessionizer + dependencies
       pkgs.sesh
       pkgs.zoxide
