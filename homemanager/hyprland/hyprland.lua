@@ -52,9 +52,10 @@ local autostart_background = {
 local autostart_workspaces = {
 	{ workspace = "1", cmd = terminal },
 	{ workspace = "2", cmd = browser },
+	{ workspace = "3", cmd = "bitwarden"},
 	{ workspace = "4", cmd = "signal-desktop" },
 	{ workspace = "4", cmd = "thunderbird"},
-	-- { workspace = "4", cmd = "thunderbird"} (this will be done using the window rules)
+	-- { workspace = "4", cmd = "discord"} (this will be done using the window rules)
 }
 
 hl.on("hyprland.start", function ()
