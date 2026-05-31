@@ -232,7 +232,7 @@ hl.config({
 
 hl.config({
 	misc = {
-		force_default_wallpaper = 0,    -- Set to 0 or 1 to disable the anime mascot wallpapers
+		force_default_wallpaper = 0, -- Set to 0 or 1 to disable the anime mascot wallpapers
 		disable_hyprland_logo   = true, -- If true disables the random hyprland logo / anime girl background. :(
 	},
 })
@@ -302,7 +302,7 @@ hl.bind(mainMod .. " + SHIFT + V", hl.dsp.exec_cmd("~/.config/hypr/scripts/gpu-s
 
 -- Noctalia Shell goodies
 
-hl.bind(mainMod .. " + L", hl.dsp.exec_cmd("noctalia-shell ipc call lockScreen lock"))
+-- hl.bind(mainMod .. " + SHIFT + L", hl.dsp.exec_cmd("noctalia-shell ipc call lockScreen lock"))
 hl.bind("F10", hl.dsp.exec_cmd("noctalia-shell ipc call lockScreen lock"))
 hl.bind(mainMod .. " + I", hl.dsp.exec_cmd("noctalia-shell ipc call bar toggle"))
 
