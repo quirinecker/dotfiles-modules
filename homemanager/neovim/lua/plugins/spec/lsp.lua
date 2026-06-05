@@ -9,9 +9,6 @@ local function keymap(args)
 	-- loading workspace diagnostics
 	require('workspace-diagnostics').populate_workspace_diagnostics(client, bufnr)
 
-	-- Enable completion triggered by <c-x><c-o>
-	vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
-
 	-- Mappings.
 	-- See `:help vim.lsp.*` for documentation on any of the below functions
 	local bufopts = { noremap = true, silent = true, buffer = bufnr }
@@ -35,7 +32,7 @@ local function keymap(args)
 
 	-- autoformat
 
-	if client:supports_method('textDocument/formatting') then
+	if client:supports_method('textDocument/formatting', bufnr) then
 		vim.api.nvim_create_autocmd('BufWritePre', {
 			group = vim.api.nvim_create_augroup('LspFormatting', { clear = true }),
 			buffer = args.buf,
