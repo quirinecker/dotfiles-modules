@@ -1,6 +1,7 @@
 return {
 	{
 		'nvim-treesitter/nvim-treesitter',
+		commit = "90cd658",
 		build = ':TSUpdate',
 		event = { "BufReadPost", "BufNewFile" },
 		config = function()
@@ -20,6 +21,7 @@ return {
 					"gdscript",
 					"vue",
 					"toml",
+					"rust"
 				},
 				highlight = {
 					enable = true
