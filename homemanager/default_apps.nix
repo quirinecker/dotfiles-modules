@@ -19,6 +19,7 @@ in
       "x-scheme-handler/http" = "${defaultBrowser}.desktop";
       "x-scheme-handler/https" = "${defaultBrowser}.desktop";
       "x-scheme-handler/about" = "${defaultBrowser}.desktop";
+      "x-scheme-handler/mailto" = "thunderbird.desktop";
       "inode/directory" = "org.gnome.Nautilus.desktop";
       "application/pdf" = "${defaultBrowser}.desktop";
     };
