@@ -18,7 +18,7 @@ hl.monitor({
 -- Set programs that you use
 local terminal    = "ghostty"
 local fileManager = "nautilus"
-local menu        = "walker"
+local menu        = "noctalia msg panel-open launcher"
 local browser     = "zen-beta"
 
 
@@ -38,7 +38,7 @@ local autostart_background = {
 	"hypridle",
 	"elephant",
 	"walker --gapplication-service",
-	"noctalia-shell",
+	"noctalia",
 	"kdeconnectd",
 	"kdeconnect-indicator",
 
@@ -72,6 +72,18 @@ hl.window_rule({
 	name = "discord_workspace_4",
 	match = { class = "^(discord)$" },
 	workspace = "4"
+})
+
+hl.window_rule({
+	name = "noctalia_no_blur",
+	match = { class = "dev.noctalia.Noctalia" },
+	no_blur = true
+})
+
+hl.layer_rule({
+	match = { namespace = "noctalia-bar-default" },
+	blur = false,
+	blur_popups = false
 })
 
 -------------------------------
@@ -280,7 +292,7 @@ hl.bind(mainMod .. " + T", hl.dsp.exec_cmd(terminal))
 hl.bind(mainMod .. " + C", hl.dsp.window.close())
 hl.bind(mainMod .. " + SHIFT + Q",
 	hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'"))
-hl.bind(mainMod .. " + Q", hl.dsp.exec_cmd("noctalia-shell ipc call sessionMenu toggle"))
+hl.bind(mainMod .. " + Q", hl.dsp.exec_cmd("noctalia msg panel-open session"))
 hl.bind(mainMod .. " + E", hl.dsp.exec_cmd(fileManager))
 hl.bind(mainMod .. " + B", hl.dsp.exec_cmd(browser))
 hl.bind(mainMod .. " + V", hl.dsp.window.float({ action = "toggle" }))

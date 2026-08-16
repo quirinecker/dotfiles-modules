@@ -1,7 +1,6 @@
 {
   lib,
   config,
-  pkgs,
   ...
 }:
 {
@@ -14,31 +13,12 @@
   };
 
   config = lib.mkIf config.modules.noctalia.enable {
-    programs.noctalia-shell.enable = true;
-    programs.noctalia-shell.settings = (import ./noctalia/settings.nix) {
-      isLaptop = config.modules.noctalia.isLaptop;
-    };
-    programs.noctalia-shell.plugins = {
-      sources = [
-        {
-          enabled = true;
-          name = "Official Noctalia Plugins";
-          url = "https://github.com/noctalia-dev/noctalia-plugins";
-        }
-      ];
-      states = {
-        kde-connect = {
-          enabled = true;
-          sourceUrl = "https://github.com/noctalia-dev/noctalia-plugins/";
-        };
-        network-manager-vpn = {
-          enabled = true;
-          sourceUrl = "https://github.com/noctalia-dev/noctalia-plugins/";
-        };
+    programs.noctalia = {
+      enable = true;
+      settings = (import ./noctalia/settings.nix) {
+        isLaptop = config.modules.noctalia.isLaptop;
       };
-      version = 2;
     };
-    home.file."${config.home.homeDirectory}/Pictures/Wallpapers".source = ./backgrounds;
   };
 
 }
