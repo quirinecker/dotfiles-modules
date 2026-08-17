@@ -9,6 +9,16 @@
   audio = {
     enable_sounds = true;
   };
+  keybinds = {
+    down = [
+      "Down"
+      "Ctrl+n"
+    ];
+    up = [
+      "Up"
+      "Ctrl+p"
+    ];
+  };
   bar = {
     default = {
       background_opacity = 0;
@@ -30,7 +40,7 @@
         "clock"
         "session"
       ];
-      layer = "overlay";
+      layer = "top";
       margin_edge = 6;
       margin_ends = 24;
       position = "left";
