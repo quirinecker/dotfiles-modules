@@ -26,11 +26,6 @@
       url = "github:Thunderbottom/nix-options-doc";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    noctalia = {
-      url = "github:noctalia-dev/noctalia";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
 
   outputs =
@@ -63,7 +58,6 @@
       externalModules = [
         inputs.walker.homeManagerModules.default
         inputs.zen-browser.homeModules.beta
-        inputs.noctalia.homeModules.default
       ];
     in
     {
