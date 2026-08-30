@@ -1,0 +1,10 @@
+{ ... }:
+{
+  flake.modules.nixos.cemu = { pkgs, ... }: {
+    environment.systemPackages = with pkgs; [ cemu ];
+
+    services.udev.extraRules = ''
+      SUBSYSTEM=="usb", ENV{DEVTYPE}=="usb_device", ATTRS{idVendor}=="1430", ATTRS{idProduct}=="0150", MODE="0666"
+    '';
+  };
+}

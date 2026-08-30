@@ -1,0 +1,30 @@
+{ ... }:
+let
+  defaultBrowser = "zen-beta";
+in
+{
+  flake.modules.homeManager.default-apps = { ... }: {
+    xdg.mimeApps.enable = true;
+    xdg.mimeApps.defaultApplications = {
+      # Future Reference: use `xdg-mime query filetype <file>` to get the mime tyep of a given file
+      "text/html" = "${defaultBrowser}.desktop";
+      "x-scheme-handler/http" = "${defaultBrowser}.desktop";
+      "x-scheme-handler/https" = "${defaultBrowser}.desktop";
+      "x-scheme-handler/about" = "${defaultBrowser}.desktop";
+      "x-scheme-handler/mailto" = "thunderbird.desktop";
+      "inode/directory" = "org.gnome.Nautilus.desktop";
+      "application/pdf" = "${defaultBrowser}.desktop";
+    };
+
+    xdg.terminal-exec.enable = true;
+    xdg.terminal-exec.settings = {
+      default = [ "ghostty.desktop" ];
+    };
+
+    home.sessionVariables = {
+      EDITOR = "nvim";
+      TERMINAL = "ghostty";
+      TERM = "ghostty";
+    };
+  };
+}
