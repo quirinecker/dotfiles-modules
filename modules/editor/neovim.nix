@@ -1,4 +1,4 @@
-{ ... }:
+{ inputs, ... }:
 {
   flake.modules.homeManager.neovim = { pkgs, config, lib, ... }:
   let
@@ -65,5 +65,15 @@
     # home.activation.npm-install = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
     #   nix-shell -p nodejs --run "cd ${configHome}/.npm_global && npm install"
     # '';
+  };
+
+  perSystem = { pkgs, ... }: {
+    packages.neovim = inputs.wrappers.lib.wrapPackage {
+      inherit pkgs;
+      package = pkgs.neovim;
+      flags = {
+        "-u" = ./neovim/init.lua;
+      };
+    };
   };
 }
