@@ -61,8 +61,9 @@
       "nvim/projects".source = config.lib.file.mkOutOfStoreSymlink ./neovim/projects;
     };
 
-    home.activation.npm-install = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
-      nix-shell -p nodejs --run "cd ${configHome}/.npm_global && npm install"
-    '';
+    # Todo: fix vue language server
+    # home.activation.npm-install = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+    #   nix-shell -p nodejs --run "cd ${configHome}/.npm_global && npm install"
+    # '';
   };
 }
