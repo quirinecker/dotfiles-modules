@@ -8,21 +8,9 @@ To use the modules, add the following flake input to your flake:
 
 ```nix
 dotfiles-modules = {
-	url = "github:quirinecker/dotfiles-modules";
-	inputs.nixpkgs.follows = "nixpkgs";
-};
-```
-
-In case you want to update the input flakes this flake imports yourself (recommended), then you would need to declare the inputs yourself
-and make this flake follow those inputs:
-
-```nix
-dotfiles-modules = {
   url = "github:quirinecker/dotfiles-modules";
   inputs.nixpkgs.follows = "nixpkgs";
   inputs.zen-browser.follows = "zen-browser";
-  inputs.walker.follows = "walker";
-  inputs.elephant.follows = "elephant";
 };
 
 zen-browser = {
@@ -30,44 +18,24 @@ zen-browser = {
   inputs.nixpkgs.follows = "nixpkgs";
 };
 
-walker = {
-  url = "github:abenz1267/walker";
-  inputs.nixpkgs.follows = "nixpkgs";
-  inputs.elephant.follows = "elephant";
-};
-
-elephant = {
-	url = "github:abenz1267/elephant";
-	inputs.nixpkgs.follows = "nixpkgs";
-};
 ```
 
-Then import the modules in your home-manager configuration or add it to the modules of the home configuration:
+Then import the aspcects in the respective environments:
 
 ```nix
 imports = [
-    inputs.dotfiles-modules.homeManager
+    inputs.dotfiles-modules.modules.homeManager.<aspect>
 ]
 ```
 
-or
 
 ```nix
-
-homeConfigurations.<username> = home-manager.lib.homeManagerConfiguration {
-	...
-	modules = [
-		inputs.dotfiles-modules.homeManager
-	];
-};
-
+imports = [
+    inputs.dotfiles-modules.modules.nixos.<aspect>
+]
 ```
 
-**Note:** If you are new to NixOS, i might add a template repository for the modules which should be simmilar to my own homemanager config.
-
-## Modules
-
-The docs for the individual mdoules can be found [here](options.md).
+For more information on which aspects are available, see `./modules/*`
 
 ## Development
 
