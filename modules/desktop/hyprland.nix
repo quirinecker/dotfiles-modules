@@ -14,6 +14,8 @@ in
   flake.modules.homeManager.hyprland = { pkgs, config, ... }: {
     home.packages = [
       pkgs.hyprpicker
+      pkgs.hypridle
+      pkgs.hyprshot
     ];
 
     xdg.configFile = {

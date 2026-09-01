@@ -1,13 +1,13 @@
 { self, inputs, ... }:
 let
   tools = pkgs: [
-      pkgs.playerctl
-      pkgs.imagemagick
-      pkgs.meld
-      pkgs.wl-clipboard
-      pkgs.steam-run
-      pkgs.sops
-      pkgs.pavucontrol
+    pkgs.playerctl
+    pkgs.imagemagick
+    pkgs.meld
+    pkgs.wl-clipboard
+    pkgs.steam-run
+    pkgs.sops
+    pkgs.pavucontrol
   ];
 
   social = pkgs: [
@@ -23,15 +23,22 @@ let
     pkgs.gnome-system-monitor
     pkgs.nautilus
     pkgs.baobab
+    pkgs.gnome-disk-utility
   ];
 
   others = pkgs: [
     pkgs.libreoffice-qt
     pkgs.nextcloud-client
     pkgs.vlc
+    pkgs.home-manager
   ];
 in
 {
+  flake.modules.nixos.programs = { ... }: {
+    imports = [
+      self.modules.nixos.flatpak
+    ];
+  };
   flake.modules.homeManager.programs = { pkgs, config, ... }: {
     imports = [
       self.modules.homeManager.obsidian
