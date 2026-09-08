@@ -16,6 +16,7 @@ in
       pkgs.hyprpicker
       pkgs.hypridle
       pkgs.hyprshot
+      pkgs.hyprland-preview-share-picker
     ];
 
     xdg.configFile = {
@@ -29,6 +30,8 @@ in
       "hypr/nix.conf".text = ''
         $defaultBrowser=${defaultBrowser}
       '';
+
+      "hypr/xdph.conf".source = config.lib.file.mkOutOfStoreSymlink ./hyprland/xdph.conf;
 
       "hypr/scripts/gpu-screen-recorder/save-replay.sh".source =
         config.lib.file.mkOutOfStoreSymlink ./hyprland/scripts/gpu-screen-recorder/save-replay.sh;
