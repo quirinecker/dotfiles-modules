@@ -24,8 +24,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    hyprland-screenshare-picker.url = "path:/home/quirinecker/Downloads/hyprland-preview-share-picker";
-
   };
 
   outputs = inputs: inputs.flake-parts.lib.mkFlake { inherit inputs; } (inputs.import-tree ./modules);
