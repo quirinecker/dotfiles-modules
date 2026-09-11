@@ -107,6 +107,28 @@
         "type": "github"
       }
     },
+    "nix-vdf": {
+      "inputs": {
+        "flake-parts": "flake-parts_2",
+        "import-tree": "import-tree_2",
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1789151507,
+        "narHash": "sha256-Ewv9wbn8oA/fyolPfOPIAxIT9vLLNPytwNYg+9iDGi0=",
+        "owner": "quirinecker",
+        "repo": "nix-vdf",
+        "rev": "3e2e63effc87a3be04b6f5b07018ba2dbf650897",
+        "type": "github"
+      },
+      "original": {
+        "owner": "quirinecker",
+        "repo": "nix-vdf",
+        "type": "github"
+      }
+    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1787736819,
@@ -194,33 +216,11 @@
         "flake-parts": "flake-parts",
         "home-manager": "home-manager",
         "import-tree": "import-tree",
+        "nix-vdf": "nix-vdf",
         "nixpkgs": "nixpkgs",
         "noctalia-greeter": "noctalia-greeter",
-        "vdf-nix": "vdf-nix",
         "wrappers": "wrappers",
         "zen-browser": "zen-browser"
-      }
-    },
-    "vdf-nix": {
-      "inputs": {
-        "flake-parts": "flake-parts_2",
-        "import-tree": "import-tree_2",
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1789151507,
-        "narHash": "sha256-Ewv9wbn8oA/fyolPfOPIAxIT9vLLNPytwNYg+9iDGi0=",
-        "owner": "quirinecker",
-        "repo": "nix-vdf",
-        "rev": "3e2e63effc87a3be04b6f5b07018ba2dbf650897",
-        "type": "github"
-      },
-      "original": {
-        "owner": "quirinecker",
-        "repo": "nix-vdf",
-        "type": "github"
       }
     },
     "wrappers": {

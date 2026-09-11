@@ -1,7 +1,7 @@
 { inputs, ... }:
 {
   flake.modules.homeManager.cemu = { ... }: {
-    imports = [ inputs.vdf-nix.modules.homeManager.vdf ];
+    imports = [ inputs.nix-vdf.modules.homeManager.vdf ];
 
     vdf.shortcuts = {
       "208933471" = [
