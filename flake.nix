@@ -25,7 +25,7 @@
     };
 
     vdf-nix = {
-      url = "github:quirinecker/vdf-nix";
+      url = "github:quirinecker/nix-vdf";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
