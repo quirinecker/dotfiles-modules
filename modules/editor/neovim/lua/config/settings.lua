@@ -38,3 +38,8 @@ vim.opt.showtabline = 1
 vim.opt.showmode = false
 
 vim.opt.diffopt = "vertical"
+
+-- spellchecking
+
+vim.opt.spelllang = "en_us"
+vim.opt.spell = true

@@ -27,7 +27,7 @@ let
   ];
 
   others = pkgs: [
-    pkgs.libreoffice-qt
+    pkgs.onlyoffice-desktopeditors
     pkgs.nextcloud-client
     pkgs.vlc
     pkgs.home-manager

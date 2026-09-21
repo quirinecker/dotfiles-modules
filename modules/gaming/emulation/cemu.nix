@@ -94,6 +94,7 @@
     services.udev.extraRules = ''
       SUBSYSTEM=="usb", ENV{DEVTYPE}=="usb_device", ATTRS{idVendor}=="1430", ATTRS{idProduct}=="0150", MODE="0666"
       SUBSYSTEM=="hidraw", ATTRS{idVendor}=="2dc8", MODE="0666", GROUP="users", TAG+="uaccess"
+      SUBSYSTEMS=="usb*", ATTRS{idVendor}=="36bc", MODE="0666"
     '';
   };
 }
