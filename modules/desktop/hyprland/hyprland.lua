@@ -1,4 +1,3 @@
-require('hyprland_hardware')
 ------------------
 ---- MONITORS ----
 ------------------
@@ -290,68 +289,66 @@ hl.gesture({
 ---- KEYBINDINGS ----
 ---------------------
 
-local mainMod = "SUPER" -- Sets "Windows" key as main modifier
+MainMod = "SUPER" -- Sets "Windows" key as main modifier. Is global so other scripts can also access it.
 
 -- Example binds, see https://wiki.hypr.land/Configuring/Basics/Binds/ for more
-hl.bind(mainMod .. " + T", hl.dsp.exec_cmd(terminal))
-hl.bind(mainMod .. " + C", hl.dsp.window.close())
-hl.bind(mainMod .. " + SHIFT + Q",
+hl.bind(MainMod .. " + T", hl.dsp.exec_cmd(terminal))
+hl.bind(MainMod .. " + C", hl.dsp.window.close())
+hl.bind(MainMod .. " + SHIFT + Q",
 	hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'"))
-hl.bind(mainMod .. " + Q", hl.dsp.exec_cmd("noctalia msg panel-open session"))
-hl.bind(mainMod .. " + E", hl.dsp.exec_cmd(fileManager))
-hl.bind(mainMod .. " + B", hl.dsp.exec_cmd(browser))
-hl.bind(mainMod .. " + V", hl.dsp.window.float({ action = "toggle" }))
-hl.bind(mainMod .. " + Space", hl.dsp.exec_cmd(menu))
-hl.bind(mainMod .. " + P", hl.dsp.window.pseudo())
-hl.bind(mainMod .. " + SHIFT + J", hl.dsp.layout("togglesplit")) -- dwindle only
-hl.bind(mainMod .. " + F", hl.dsp.window.fullscreen({ action = "toggle", mode = "maximized" }))
-hl.bind(mainMod .. " + SHIFT + F", hl.dsp.window.fullscreen({ action = "toggle", mode = "fullscreen" }))
+hl.bind(MainMod .. " + Q", hl.dsp.exec_cmd("noctalia msg panel-open session"))
+hl.bind(MainMod .. " + E", hl.dsp.exec_cmd(fileManager))
+hl.bind(MainMod .. " + B", hl.dsp.exec_cmd(browser))
+hl.bind(MainMod .. " + V", hl.dsp.window.float({ action = "toggle" }))
+hl.bind(MainMod .. " + Space", hl.dsp.exec_cmd(menu))
+hl.bind(MainMod .. " + P", hl.dsp.window.pseudo())
+hl.bind(MainMod .. " + SHIFT + J", hl.dsp.layout("togglesplit")) -- dwindle only
+hl.bind(MainMod .. " + F", hl.dsp.window.fullscreen({ action = "toggle", mode = "maximized" }))
+hl.bind(MainMod .. " + SHIFT + F", hl.dsp.window.fullscreen({ action = "toggle", mode = "fullscreen" }))
 
 -- Layout stwitching
-hl.bind(mainMod .. " + ALT + Space", hl.dsp.exec_cmd("hyprctl switchxkblayout current next"))
+hl.bind(MainMod .. " + ALT + Space", hl.dsp.exec_cmd("hyprctl switchxkblayout current next"))
 
 -- Capturing something from the screen
 
-hl.bind(mainMod .. " + SHIFT + S", hl.dsp.exec_cmd("hyprshot -m region -z"))
-hl.bind(mainMod .. " + SHIFT + C", hl.dsp.exec_cmd("hyprpicker | wl-copy"))
--- This requires gpu-screen-recorder to be installed. I installed it with this https://wiki.nixos.org/wiki/Gpu-screen-recorder.
-hl.bind(mainMod .. " + SHIFT + V", hl.dsp.exec_cmd("~/.config/hypr/scripts/gpu-screen-recorder/save-replay.sh"))
+hl.bind(MainMod .. " + SHIFT + S", hl.dsp.exec_cmd("hyprshot -m region -z"))
+hl.bind(MainMod .. " + SHIFT + C", hl.dsp.exec_cmd("hyprpicker | wl-copy"))
 
 -- Noctalia Shell goodies
 
 -- hl.bind(mainMod .. " + SHIFT + L", hl.dsp.exec_cmd("noctalia-shell ipc call lockScreen lock"))
 hl.bind("F10", hl.dsp.exec_cmd("noctalia-shell ipc call lockScreen lock"))
-hl.bind(mainMod .. " + I", hl.dsp.exec_cmd("noctalia-shell ipc call bar toggle"))
+hl.bind(MainMod .. " + I", hl.dsp.exec_cmd("noctalia-shell ipc call bar toggle"))
 
 
 -- Move focus with mainMod + arrow keys
-hl.bind(mainMod .. " + H", hl.dsp.focus({ direction = "left" }))
-hl.bind(mainMod .. " + L", hl.dsp.focus({ direction = "right" }))
-hl.bind(mainMod .. " + K", hl.dsp.focus({ direction = "up" }))
-hl.bind(mainMod .. " + J", hl.dsp.focus({ direction = "down" }))
+hl.bind(MainMod .. " + H", hl.dsp.focus({ direction = "left" }))
+hl.bind(MainMod .. " + L", hl.dsp.focus({ direction = "right" }))
+hl.bind(MainMod .. " + K", hl.dsp.focus({ direction = "up" }))
+hl.bind(MainMod .. " + J", hl.dsp.focus({ direction = "down" }))
 
-hl.bind(mainMod .. " + SHIFT + H", hl.dsp.window.move({ direction = "left" }))
-hl.bind(mainMod .. " + SHIFT + L", hl.dsp.window.move({ direction = "right" }))
-hl.bind(mainMod .. " + SHIFT + K", hl.dsp.window.move({ direction = "up" }))
-hl.bind(mainMod .. " + SHIFT + J", hl.dsp.window.move({ direction = "down" }))
+hl.bind(MainMod .. " + SHIFT + H", hl.dsp.window.move({ direction = "left" }))
+hl.bind(MainMod .. " + SHIFT + L", hl.dsp.window.move({ direction = "right" }))
+hl.bind(MainMod .. " + SHIFT + K", hl.dsp.window.move({ direction = "up" }))
+hl.bind(MainMod .. " + SHIFT + J", hl.dsp.window.move({ direction = "down" }))
 
 for i = 1, 10 do
 	local key = i % 10 -- 10 maps to key 0
-	hl.bind(mainMod .. " + " .. key, hl.dsp.focus({ workspace = i }))
-	hl.bind(mainMod .. " + SHIFT + " .. key, hl.dsp.window.move({ workspace = i }))
+	hl.bind(MainMod .. " + " .. key, hl.dsp.focus({ workspace = i }))
+	hl.bind(MainMod .. " + SHIFT + " .. key, hl.dsp.window.move({ workspace = i }))
 end
 
 -- Example special workspace (scratchpad)
-hl.bind(mainMod .. " + 0", hl.dsp.workspace.toggle_special("magic"))
-hl.bind(mainMod .. " + SHIFT + 0", hl.dsp.window.move({ workspace = "special:magic" }))
+hl.bind(MainMod .. " + 0", hl.dsp.workspace.toggle_special("magic"))
+hl.bind(MainMod .. " + SHIFT + 0", hl.dsp.window.move({ workspace = "special:magic" }))
 
 -- Scroll through existing workspaces with mainMod + scroll
-hl.bind(mainMod .. " + mouse_down", hl.dsp.focus({ workspace = "e+1" }))
-hl.bind(mainMod .. " + mouse_up", hl.dsp.focus({ workspace = "e-1" }))
+hl.bind(MainMod .. " + mouse_down", hl.dsp.focus({ workspace = "e+1" }))
+hl.bind(MainMod .. " + mouse_up", hl.dsp.focus({ workspace = "e-1" }))
 
 -- Move/resize windows with mainMod + LMB/RMB and dragging
-hl.bind(mainMod .. " + mouse:272", hl.dsp.window.drag(), { mouse = true })
-hl.bind(mainMod .. " + mouse:273", hl.dsp.window.resize(), { mouse = true })
+hl.bind(MainMod .. " + mouse:272", hl.dsp.window.drag(), { mouse = true })
+hl.bind(MainMod .. " + mouse:273", hl.dsp.window.resize(), { mouse = true })
 
 -- Laptop multimedia keys for volume and LCD brightness
 hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd("wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+"),
@@ -373,7 +370,7 @@ hl.bind("XF86AudioPrev", hl.dsp.exec_cmd("playerctl previous"), { locked = true 
 
 -- Gaming Mode
 
-hl.bind(mainMod .. "+ SHIFT + G",
+hl.bind(MainMod .. "+ SHIFT + G",
 	hl.dsp.exec_cmd(
 		"nix run nixpkgs#gamescope -- -W 2560 -H 1440 -f -e -- steam -bigpicture",
 		{ workspace = "9" }

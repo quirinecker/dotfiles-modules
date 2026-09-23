@@ -11,33 +11,56 @@ in
     };
   };
 
-  flake.modules.homeManager.hyprland = { pkgs, config, ... }: {
-    home.packages = [
-      pkgs.hyprpicker
-      pkgs.hypridle
-      pkgs.hyprshot
-      pkgs.hyprland-preview-share-picker
-    ];
+  flake.modules.homeManager.hyprland =
+    {
+      pkgs,
+      config,
+      lib,
+      ...
+    }:
+    {
+      options = {
+        dotfiles-modules.hyprland.extraConfig = lib.mkOption {
+          type = lib.types.lines;
+          default = "";
+          description = "Extra config to add to the hyprland config file.";
+        };
+      };
+      config = {
+        home.packages = [
+          pkgs.hyprpicker
+          pkgs.hypridle
+          pkgs.hyprshot
+          pkgs.hyprland-preview-share-picker
+        ];
 
-    xdg.configFile = {
-      "hypr/hyprland.lua".source = config.lib.file.mkOutOfStoreSymlink ./hyprland/hyprland.lua;
+        xdg.configFile = {
+          "hypr/hyprland.lua".text = ''
+            require("config")
+            require("extraConfig")
+          '';
 
-      # The stups get linked to the config directory as well in order to use the autocomplete without copying it over in other places.
-      "hypr/hl.meta.lua".source = config.lib.file.mkOutOfStoreSymlink ./hyprland/hl.meta.lua;
-      "hypr/hypridle.conf".source = config.lib.file.mkOutOfStoreSymlink ./hyprland/hypridle.conf;
-      "backgrounds".source = config.lib.file.mkOutOfStoreSymlink ./backgrounds;
+          "hypr/config.lua".source = config.lib.file.mkOutOfStoreSymlink ./hyprland/hyprland.lua;
 
-      "hypr/nix.conf".text = ''
-        $defaultBrowser=${defaultBrowser}
-      '';
+          "hypr/extraConfig.lua".text = config.dotfiles-modules.hyprland.extraConfig;
 
-      "hypr/xdph.conf".source = config.lib.file.mkOutOfStoreSymlink ./hyprland/xdph.conf;
+          # The stups get linked to the config directory as well in order to use the autocomplete without copying it over in other places.
+          "hypr/hl.meta.lua".source = config.lib.file.mkOutOfStoreSymlink ./hyprland/hl.meta.lua;
 
-      "hypr/scripts/gpu-screen-recorder/save-replay.sh".source =
-        config.lib.file.mkOutOfStoreSymlink ./hyprland/scripts/gpu-screen-recorder/save-replay.sh;
-      "hypr/scripts/gpu-screen-recorder/start-replay.sh".source =
-        config.lib.file.mkOutOfStoreSymlink ./hyprland/scripts/gpu-screen-recorder/start-replay.sh;
+          "hypr/hypridle.conf".source = config.lib.file.mkOutOfStoreSymlink ./hyprland/hypridle.conf;
+          "backgrounds".source = config.lib.file.mkOutOfStoreSymlink ./backgrounds;
+
+          "hypr/nix.conf".text = ''
+            $defaultBrowser=${defaultBrowser}
+          '';
+
+          "hypr/xdph.conf".source = config.lib.file.mkOutOfStoreSymlink ./hyprland/xdph.conf;
+
+          "hypr/scripts/gpu-screen-recorder/save-replay.sh".source =
+            config.lib.file.mkOutOfStoreSymlink ./hyprland/scripts/gpu-screen-recorder/save-replay.sh;
+          "hypr/scripts/gpu-screen-recorder/start-replay.sh".source =
+            config.lib.file.mkOutOfStoreSymlink ./hyprland/scripts/gpu-screen-recorder/start-replay.sh;
+        };
+      };
     };
-
-  };
 }

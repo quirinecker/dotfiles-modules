@@ -14,6 +14,7 @@ let
     pkgs.discord
     pkgs.element-desktop
     pkgs.signal-desktop
+    pkgs.deltachat-desktop
     pkgs.spotify
   ];
 
