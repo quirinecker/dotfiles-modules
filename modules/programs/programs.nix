@@ -1,5 +1,12 @@
 { self, inputs, ... }:
 let
+  blender =
+    pkgs:
+    pkgs.blender.override {
+      config.cudaSupport = true;
+      config.rocmSupport = false;
+    };
+
   tools = pkgs: [
     pkgs.playerctl
     pkgs.imagemagick
@@ -8,6 +15,7 @@ let
     pkgs.steam-run
     pkgs.sops
     pkgs.pavucontrol
+    (blender pkgs)
   ];
 
   social = pkgs: [
