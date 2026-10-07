@@ -7,6 +7,7 @@
       self.modules.nixos.xserver
       self.modules.nixos.gnome-services
       self.modules.nixos.wayland
+      self.modules.nixos.noctalia
     ];
   };
   flake.modules.homeManager.desktop = { ... }: {
