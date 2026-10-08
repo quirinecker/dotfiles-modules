@@ -1,6 +1,6 @@
 {
+  smallScreen ? false,
 }:
-
 {
   accessibility = {
     ui_scale = 1.25;
@@ -22,10 +22,14 @@
     default = {
       background_opacity = 0;
       capsule = true;
-      center = [
-        "audio_visualizer"
-        "media"
-      ];
+      center =
+        if smallScreen then
+          [ ]
+        else
+          [
+            "audio_visualizer"
+            "media"
+          ];
       end = [
         "tray"
         "notifications"
