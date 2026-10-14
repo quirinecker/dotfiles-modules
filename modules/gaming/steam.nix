@@ -11,6 +11,7 @@
         audioDeviceSearchTerm = "SONY TV";
         script = pkgs.writeShellScriptBin "switch-to-steam-tv" ''
           nu -c 'wpctl set-default (wpctl status | lines | where ($it | str contains "${audioDeviceSearchTerm}") | str replace -r "│\\s*(\\d+).*" "$1" | first)'
+          killall steam
           ${pkgs.gamescope}/bin/gamescope -W 2560 -H 1440 -f -e -- steam -bigpicture
         '';
       in
