@@ -57,7 +57,6 @@
             landscape = ./cemu/swapforce/landscape.png;
           };
         }
-
         {
           "appid" = 2171090255;
           "AppName" = "Skylanders Imaginators";
@@ -82,6 +81,32 @@
             hero = ./cemu/imaginators/hero.png;
             portrait = ./cemu/imaginators/portrait.png;
             landscape = ./cemu/imaginators/landscape.png;
+          };
+        }
+        {
+          "appid" = 2147488648;
+          "AppName" = "Skylanders SuperChargers";
+          "Exe" = "cemu";
+          "StartDir" = "/home/quirinecker/";
+          "icon" = "${./cemu/superchargers/logo.png}";
+          "ShortcutPath" = "";
+          "LaunchOptions" = "--title-id 00050000101bfc00 --fullscreen";
+          "IsHidden" = 0;
+          "AllowDesktopConfig" = 1;
+          "AllowOverlay" = 1;
+          "OpenVR" = 0;
+          "Devkit" = 0;
+          "DevkitGameID" = "";
+          "DevkitOverrideAppID" = 0;
+          "LastPlayTime" = 1788025801;
+          "FlatpakAppID" = "";
+          "sortas" = "";
+          "tags" = { };
+          grid = {
+            logo = ./cemu/superchargers/logo.png;
+            hero = ./cemu/superchargers/hero.png;
+            portrait = ./cemu/superchargers/portrait.png;
+            landscape = ./cemu/superchargers/landscape.png;
           };
         }
       ];
