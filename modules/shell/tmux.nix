@@ -58,6 +58,8 @@
         }
       ];
 
+      programs.zoxide.enable = true;
+      programs.zoxide.enableFishIntegration = true;
       home.packages = [
         # tmux sessionizer + dependencies
         pkgs.sesh
