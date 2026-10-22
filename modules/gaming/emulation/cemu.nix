@@ -84,7 +84,8 @@
           };
         }
         {
-          "appid" = 2147488648;
+          # "appid" = 2147488648;
+          "appid" = 4294967296;
           "AppName" = "Skylanders SuperChargers";
           "Exe" = "cemu";
           "StartDir" = "/home/quirinecker/";

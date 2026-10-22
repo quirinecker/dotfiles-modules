@@ -24,6 +24,7 @@ let
     pkgs.signal-desktop
     pkgs.deltachat-desktop
     pkgs.spotify
+    pkgs.grayjay
   ];
 
   gnome-apps = pkgs: [
