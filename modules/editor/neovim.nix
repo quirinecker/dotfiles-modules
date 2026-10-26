@@ -46,6 +46,7 @@ let
     pkgs.tinymist
     pkgs.dart
     pkgs.tree-sitter
+    pkgs.haskell-language-server
   ];
 in
 {
