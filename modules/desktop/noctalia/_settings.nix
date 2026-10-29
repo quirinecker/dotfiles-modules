@@ -32,16 +32,14 @@
           ];
       end = [
         "tray"
-        "notifications"
-        "clipboard"
         "network"
         "bluetooth"
         "volume"
-        "brightness"
         "battery"
         "control-center"
+        "wallpaper"
         "clock"
-        "session"
+        "notifications"
       ];
       layer = "top";
       margin_edge = 6;
