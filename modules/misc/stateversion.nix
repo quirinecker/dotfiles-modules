@@ -3,6 +3,6 @@
     system.stateVersion = "24.05";
   };
   flake.modules.homeManager.stateversion = {
-    home.stateVersion = "26.05";
+    home.stateVersion = "26.11";
   };
 }
