@@ -55,11 +55,52 @@
 
         # will be managed by television
         enableTmuxIntegration = false;
+
+        settings = {
+          wildcard = [
+            {
+              pattern = "~/projects/**";
+              startup_command = "nvim .";
+              windows = [
+                "run"
+                "scratch"
+              ];
+            }
+            {
+              pattern = "~/.config/dotfiles";
+              startup_command = "nvim .";
+              windows = [
+                "run"
+                "scratch"
+              ];
+            }
+            {
+              pattern = "~/Nextcloud/obsidian/Personal";
+              startup_command = "nvim index.md";
+            }
+          ];
+          window =
+            let
+              mapToFullObjects = map (x: {
+                name = x;
+              });
+            in
+            (mapToFullObjects [
+              "run"
+              "scratch"
+            ])
+            ++ [
+
+            ];
+        };
       };
 
       programs.television = {
         enable = true;
         enableFishIntegration = true;
+        settings = {
+          ui.input_bar.position = "bottom";
+        };
       };
     };
 }
