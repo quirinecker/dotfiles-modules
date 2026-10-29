@@ -11,7 +11,8 @@
       programs.tmux.extraConfig = ''
         set -sg escape-time 0
         set -g base-index 1
-        set -g default-terminal "screen-256color"
+        set -g default-terminal "tmux-256color"
+        set -as terminal-features ",xterm-256color:RGB"
         unbind C-o
         unbind C-j
         bind-key "C-j" display-popup -E -w 80% -h 70% -s none -S none -b none "tv sesh"
