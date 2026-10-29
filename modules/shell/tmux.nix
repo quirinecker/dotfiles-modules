@@ -14,20 +14,7 @@
         set -g default-terminal "screen-256color"
         unbind C-o
         unbind C-j
-        bind-key "C-j" run-shell "sesh connect \"$(
-          sesh list --icons | fzf-tmux -p 80%,70% \
-            --no-sort --ansi --border-label ' sesh ' --prompt '⚡  ' \
-            --header '  ^a all ^t tmux ^g configs ^x zoxide ^d tmux kill ^f find' \
-            --bind 'tab:down,btab:up' \
-            --bind 'ctrl-a:change-prompt(⚡  )+reload(sesh list --icons)' \
-            --bind 'ctrl-t:change-prompt(🪟  )+reload(sesh list -t --icons)' \
-            --bind 'ctrl-g:change-prompt(⚙️  )+reload(sesh list -c --icons)' \
-            --bind 'ctrl-x:change-prompt(📁  )+reload(sesh list -z --icons)' \
-            --bind 'ctrl-f:change-prompt(🔎  )+reload(fd -H -d 2 -t d -E .Trash . ~)' \
-            --bind 'ctrl-d:execute(tmux kill-session -t {2..})+change-prompt(⚡  )+reload(sesh list --icons)' \
-            --preview-window 'right:55%' \
-            --preview 'sesh preview {}'
-        )\""
+        bind-key "C-j" display-popup -E -w 80% -h 70% -s none -S none -b none "tv sesh"
 
         bind r source-file ~/.config/tmux/tmux.conf \; display-message "Config reloaded..."
 
@@ -58,13 +45,20 @@
         }
       ];
 
+      # tmux sessionizer + dependencies
       programs.zoxide.enable = true;
       programs.zoxide.enableFishIntegration = true;
-      home.packages = [
-        # tmux sessionizer + dependencies
-        pkgs.sesh
-        pkgs.zoxide
-        pkgs.fzf
-      ];
+      programs.sesh = {
+        enable = true;
+        enableAlias = true;
+
+        # will be managed by television
+        enableTmuxIntegration = false;
+      };
+
+      programs.television = {
+        enable = true;
+        enableFishIntegration = true;
+      };
     };
 }
