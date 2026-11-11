@@ -1,3 +1,6 @@
+function list_dailies()
+end
+
 return {
 	"epwalsh/obsidian.nvim",
 	version = "*", -- recommended, use latest release instead of latest commit
@@ -14,11 +17,15 @@ return {
 	dependencies = {
 		-- Required.
 		"nvim-lua/plenary.nvim",
+		require('plugins.spec.treesitter')
 
 		-- see below for full list of optional dependencies 👇
 	},
 	config = function()
 		vim.opt_global.conceallevel = 2
+
+		require("plugins.config.obsidian")
+
 		require("obsidian").setup({
 
 			workspaces = {
@@ -35,4 +42,8 @@ return {
 			-- see below for full list of options 👇
 		})
 	end,
+	keys = {
+		{ '<leader>ld', list_dailies, desc = "(l)ist (d)ailies" }
+
+	}
 }
