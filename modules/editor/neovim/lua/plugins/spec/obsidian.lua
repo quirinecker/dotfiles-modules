@@ -1,4 +1,5 @@
-function list_dailies()
+local function list_dailies()
+	vim.cmd("ObsidianDailies -5 2")
 end
 
 return {
