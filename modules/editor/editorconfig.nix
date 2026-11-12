@@ -42,6 +42,10 @@
           indent_style = "space";
           indent_size = 4;
         };
+        "*.dart" = {
+          indent_style = "space";
+          indent_size = 2;
+        };
       };
     };
   };
