@@ -9,5 +9,9 @@
         settings = { };
       };
     };
+
+    dotfiles-modules.hyprland.extraConfig = ''
+      hl.bind("SUPER + SHIFT + N", hl.dsp.exec_cmd("xdg-open obsidian://open?vault=Personal&file=$(date -I).md"))
+    '';
   };
 }
