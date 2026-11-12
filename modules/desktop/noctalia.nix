@@ -3,15 +3,7 @@
     services.upower.enable = true;
   };
 
-  flake.modules.homeManager.noctalia = { lib, config, ... }: {
-    options = {
-      modules.noctalia.smallScreen = lib.mkOption {
-        type = lib.types.bool;
-        default = false;
-        description = "Whether to adjust to small screen. Affects mostly the visibility of the middle bar panel.";
-      };
-    };
-
+  flake.modules.homeManager.noctalia = { config, ... }: {
     config = {
       programs.noctalia = {
         enable = true;
