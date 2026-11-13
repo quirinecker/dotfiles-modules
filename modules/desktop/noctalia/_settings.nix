@@ -20,6 +20,7 @@
   };
   bar = {
     default = {
+      compositor_blur = false;
       background_opacity = 0;
       capsule = true;
       center =
@@ -122,6 +123,10 @@
   shell = {
     screen_time_enabled = true;
     settings_window_translucent = true;
+    panel = {
+      control_center_placement = "floating";
+      wallpaper_placement = "floating";
+    };
   };
   theme = {
     builtin = "Nord";
@@ -149,6 +154,11 @@
     };
     workspaces = {
       show_labels = false;
+    };
+    tray = {
+      detached_panel = true;
+      drawer = true;
+      pinned = ["Nextcloud"];
     };
   };
 }

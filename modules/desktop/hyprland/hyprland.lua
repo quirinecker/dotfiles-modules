@@ -299,7 +299,8 @@ hl.bind(MainMod .. " + SHIFT + Q",
 hl.bind(MainMod .. " + Q", hl.dsp.exec_cmd("noctalia msg panel-open session"))
 hl.bind(MainMod .. " + E", hl.dsp.exec_cmd(fileManager))
 hl.bind(MainMod .. " + B", hl.dsp.exec_cmd(browser))
-hl.bind(MainMod .. " + V", hl.dsp.window.float({ action = "toggle" }))
+hl.bind(MainMod .. " + V", hl.dsp.exec_cmd("noctalia msg panel-open clipboard"))
+hl.bind(MainMod .. " + Escape", hl.dsp.window.float({ action = "toggle" }))
 hl.bind(MainMod .. " + Space", hl.dsp.exec_cmd(menu))
 hl.bind(MainMod .. " + P", hl.dsp.window.pseudo())
 hl.bind(MainMod .. " + SHIFT + J", hl.dsp.layout("togglesplit")) -- dwindle only
