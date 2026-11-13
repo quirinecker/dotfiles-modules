@@ -121,6 +121,7 @@
     ];
   };
   shell = {
+    screenshot.region_dim_opacity = 0.3;
     screen_time_enabled = true;
     settings_window_translucent = true;
     panel = {
@@ -158,7 +159,7 @@
     tray = {
       detached_panel = true;
       drawer = true;
-      pinned = ["Nextcloud"];
+      pinned = [ "Nextcloud" ];
     };
   };
 }
