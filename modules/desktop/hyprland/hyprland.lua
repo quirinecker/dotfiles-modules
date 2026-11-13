@@ -312,7 +312,8 @@ hl.bind(MainMod .. " + ALT + Space", hl.dsp.exec_cmd("hyprctl switchxkblayout cu
 
 -- Capturing something from the screen
 
-hl.bind(MainMod .. " + SHIFT + S", hl.dsp.exec_cmd("hyprshot -m region -z"))
+hl.bind(MainMod .. " + SHIFT + S", hl.dsp.exec_cmd("noctalia msg screenshot-region"))
+hl.bind(MainMod .. " + SHIFT + CTRL + S", hl.dsp.exec_cmd("noctalia msg screenshot-region --annotate"))
 hl.bind(MainMod .. " + SHIFT + C", hl.dsp.exec_cmd("hyprpicker | wl-copy"))
 
 -- Noctalia Shell goodies
