@@ -22,7 +22,6 @@ in
         home.packages = [
           pkgs.hyprpicker
           pkgs.hypridle
-          pkgs.hyprshot
           pkgs.hyprland-preview-share-picker
         ];
 
