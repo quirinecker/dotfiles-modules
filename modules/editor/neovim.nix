@@ -47,6 +47,8 @@ let
     pkgs.dart
     pkgs.tree-sitter
     pkgs.haskell-language-server
+    # Language server for scala
+    pkgs.metals
   ];
 in
 {

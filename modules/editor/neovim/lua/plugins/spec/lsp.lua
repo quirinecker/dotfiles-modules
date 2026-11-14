@@ -121,7 +121,8 @@ local function lsp_setup()
 		'nushell',
 		'tinymist',
 		'dartls',
-		'hls'
+		'hls',
+		'metals'
 		-- 'jdtls'
 	})
 
@@ -162,6 +163,9 @@ local function lsp_setup()
 	vim.lsp.config('dartls', with_defaults(require("plugins.spec.server_configurations.dart")))
 	vim.lsp.config('hls', with_defaults({
 		cmd = { "haskell-language-server-wrapper", "--lsp" },
+	}))
+	vim.lsp.config('metals', with_defaults({
+		cmd = { "metals" }
 	}))
 
 	vim.diagnostic.config({
