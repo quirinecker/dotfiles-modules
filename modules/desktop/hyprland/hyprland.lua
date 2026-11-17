@@ -285,6 +285,14 @@ hl.gesture({
 	action = "workspace"
 })
 
+-- touch gestures
+
+hl.config({
+	gestures = {
+		workspace_swipe_touch = true
+	}
+})
+
 ---------------------
 ---- KEYBINDINGS ----
 ---------------------
