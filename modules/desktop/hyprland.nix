@@ -9,6 +9,9 @@ in
       withUWSM = true;
       xwayland.enable = true;
     };
+
+    # silencing info log when starting hyprland via uwsm
+    environment.sessionVariables.UWSM_SILENT_START = 1;
   };
 
   flake.modules.homeManager.hyprland =
