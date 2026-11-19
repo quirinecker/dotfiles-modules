@@ -70,7 +70,7 @@ end)
 hl.window_rule({
 	name = "discord_workspace_4",
 	match = { class = "^(discord)$" },
-	workspace = "4"
+	workspace = "4 silent"
 })
 
 hl.window_rule({
