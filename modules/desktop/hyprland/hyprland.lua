@@ -52,7 +52,6 @@ local autostart_workspaces = {
 	{ workspace = "1", cmd = terminal },
 	{ workspace = "2", cmd = browser },
 	{ workspace = "3", cmd = "bitwarden" },
-	{ workspace = "4", cmd = "signal-desktop" },
 	{ workspace = "4", cmd = "thunderbird" },
 	-- { workspace = "4", cmd = "discord"} (this will be done using the window rules)
 }
